@@ -1,10 +1,11 @@
 # Yildiz-Engine module-audio.
 
-This is the official repository of The Yildiz-Engine Audio Module, part of the Yildiz-Engine project.
+This is the official repository of The Audio Module, part of the Yildiz-Engine project.
 The audio module is an abstract component meant to play audio files.
 It requires an implementation module to materialize it.
 
-## Status [![Quality Gate](https://www.sonarqube.com/api/badges/gate?key=be.yildiz-games:module-audio)](https://sonarqube.com/overview?id=be.yildiz-games:module-audio)
+[Link Text](https://sonarqube.com/overview?id=be.yildiz-games:module-audio)
+## Status [![Quality Gate](https://www.sonarqube.com/api/badges/gate?key=be.yildiz-games:module-audio)]
 
 ## Features
 
