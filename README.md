@@ -6,7 +6,7 @@ It requires an implementation module to materialize it.
 
 ## Status 
 
-![Quality Gate](https://www.sonarqube.com/api/badges/gate?key=be.yildiz-games:module-audio)
+https://www.sonarqube.com/api/badges/gate?key=be.yildiz-games:module-audio
 
 ## Features
 
