@@ -88,6 +88,9 @@ public final class DummyAudioEngine extends SoundEngine {
         }
     }
 
+    /**
+     * Dummy sound source.
+     */
     private static final class EmptySoundSource implements SoundSource {
         @Override
         public void play() {
