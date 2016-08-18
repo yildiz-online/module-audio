@@ -4,9 +4,8 @@
   <name>Yildiz Module Audio</name>
   <description>Module handling audio components.</description>
 
-  <groupId>be.yildiz-games</groupId>
   <artifactId>module-audio</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1-SNAPSHOT</version>
 
   <packaging>jar</packaging>
   <inceptionYear>2014</inceptionYear>
@@ -53,13 +52,5 @@
       <artifactId>mockito-all</artifactId>
     </dependency>
   </dependencies>
-  
-  <repositories>
-    <repository>
-      <id>ossrh</id>
-      <name>OSS repository snapshot</name>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </repository>
-  </repositories>
   
 </project>

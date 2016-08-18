@@ -36,7 +36,7 @@ import java.util.Optional;
  *
  * @author Grégory Van den Borre
  */
-public abstract class SoundEngine implements AutoCloseable {
+public abstract class SoundEngine implements AutoCloseable, SoundBuilder {
 
     /**
      * User listening to the audio, used for audio 3D positioning.

@@ -46,7 +46,7 @@ public final class DummyAudioEngine extends SoundEngine {
 
     @Override
     public Playlist createPlaylist(final String name) {
-        return new Playlist(name, new EmptySoundBuilder());
+        return new Playlist(name, this);
     }
 
     @Override
@@ -59,33 +59,26 @@ public final class DummyAudioEngine extends SoundEngine {
         //Does nothing.
     }
 
-    private static final class EmptySoundBuilder implements SoundBuilder {
+    /**
+     * Build a StreamSource from a file.
+     *
+     * @param file File to load.
+     * @return The built StreamSource.
+     */
+    @Override
+    public StreamSource buildStream(String file) {
+        return new EmptyStreamSource();
+    }
 
-        @Override
-        public StreamSource buildStream(String file) {
-            return new StreamSource() {
-
-                @Override
-                public void stop() {
-                    //Does nothing.
-                }
-
-                @Override
-                public void play() {
-                    //Does nothing.
-                }
-
-                @Override
-                public void addEndPlayListener(EndPlayListener listener) {
-                    //Does nothing.
-                }
-            };
-        }
-
-        @Override
-        public StreamSource createStream(String file) {
-            return new EmptyStreamSource();
-        }
+    /**
+     * Build a StreamSource from a file.
+     *
+     * @param file File to load.
+     * @return The built StreamSource.
+     */
+    @Override
+    public StreamSource createStream(String file) {
+        return this.buildStream(file);
     }
 
     /**
