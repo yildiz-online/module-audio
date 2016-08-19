@@ -58,7 +58,7 @@ public final class Playlist extends BaseRegisterable implements EndPlayListener 
     /**
      * Currently played music.
      */
-    private StreamSource currentStream;
+    private SoundSource currentStream = new DummyAudioEngine.EmptySoundSource();
 
     /**
      * Full constructor.
@@ -86,20 +86,16 @@ public final class Playlist extends BaseRegisterable implements EndPlayListener 
      * Stop playing the current music.
      */
     public void stop() {
-        if (this.currentStream != null) {
-            this.currentStream.stop();
-        }
+        this.currentStream.stop();
     }
 
     /**
      * Play the next music in the list.
      */
     public void next() {
-        if (this.currentStream != null) {
-            this.currentStream.stop();
-        }
+        this.currentStream.stop();
         if (!this.musics.isEmpty()) {
-            this.currentStream = this.builder.createStream(this.musics.get(this.current).getFile());
+            this.currentStream = this.builder.createSound(this.musics.get(this.current).getFile());
             this.current++;
             if (this.current == this.musics.size()) {
                 this.current = 0;

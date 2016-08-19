@@ -33,20 +33,11 @@ package be.yildiz.module.sound;
 public interface SoundBuilder {
 
     /**
-     * Build a StreamSource from a file.
+     * Build a SoundSource from a file.
      *
      * @param file File to load.
-     * @return The built StreamSource.
+     * @return The built SoundSource.
      */
-    @Deprecated
-    StreamSource buildStream(final String file);
-
-    /**
-     * Build a StreamSource from a file.
-     *
-     * @param file File to load.
-     * @return The built StreamSource.
-     */
-    StreamSource createStream(final String file);
+    SoundSource createSound(final String file);
 
 }

@@ -39,6 +39,8 @@ public interface SoundSource {
      */
     void play();
 
+    void addEndPlayListener(EndPlayListener listener);
+
     /**
      * Stop playing this source.
      */

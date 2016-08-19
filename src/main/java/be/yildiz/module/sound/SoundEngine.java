@@ -29,8 +29,6 @@ import be.yildiz.common.gameobject.Movable;
 import be.yildiz.common.log.Logger;
 import be.yildiz.common.vector.Point3D;
 
-import java.util.Optional;
-
 /**
  * SoundEngine behavior.
  *
@@ -45,7 +43,7 @@ public abstract class SoundEngine implements AutoCloseable, SoundBuilder {
     /**
      * Currently played music.
      */
-    private Optional<StreamSource> musicPlaying = Optional.empty();
+    private SoundSource musicPlaying = new DummyAudioEngine.EmptySoundSource();
 
     /**
      * Set a user to be considered as the audio listener.
@@ -102,7 +100,7 @@ public abstract class SoundEngine implements AutoCloseable, SoundBuilder {
     @Override
     public final void close() {
         Logger.info("Closing audio engine...");
-        this.musicPlaying.ifPresent(StreamSource::stop);
+        this.musicPlaying.stop();
         this.closeImpl();
         Logger.info("Audio engine closed.");
     }
