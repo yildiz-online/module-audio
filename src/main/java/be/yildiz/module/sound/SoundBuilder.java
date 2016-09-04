@@ -30,6 +30,7 @@ package be.yildiz.module.sound;
  *
  * @author Grégory Van Den Borre
  */
+@FunctionalInterface
 public interface SoundBuilder {
 
     /**

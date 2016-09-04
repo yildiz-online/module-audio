@@ -83,14 +83,6 @@ public abstract class SoundEngine implements AutoCloseable, SoundBuilder {
     public abstract Playlist createPlaylist(String name);
 
     /**
-     * Create a new sound.
-     *
-     * @param file File to load to play the sound.
-     * @return The created sound.
-     */
-    public abstract SoundSource createSound(String file);
-
-    /**
      * Add a path to load resources.
      *
      * @param path Path to use.
@@ -112,7 +104,7 @@ public abstract class SoundEngine implements AutoCloseable, SoundBuilder {
      *
      * @Author Grégory Van den borre.
      */
-    private final static class DefaultListener implements Movable {
+    private static final class DefaultListener implements Movable {
 
         @Override
         public void attachTo(Movable other) {

@@ -28,7 +28,7 @@ package be.yildiz.module.sound;
 import be.yildiz.common.vector.Point3D;
 
 /**
- * dummy audio engine.
+ * Dummy audio engine.
  *
  * @author Grégory Van den Borre
  */
