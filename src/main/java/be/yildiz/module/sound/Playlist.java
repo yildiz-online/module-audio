@@ -114,6 +114,9 @@ public final class Playlist extends BaseRegisterable implements EndPlayListener 
      * @param music Music to add.
      */
     public void addMusic(final Music music) {
+        if(music == null) {
+            throw new IllegalArgumentException("Music cannot be null.");
+        }
         this.musics.add(music);
     }
 

@@ -38,18 +38,33 @@ public class PlaylistTest {
 
         @Test
         public void happyFlow() {
-            new Playlist("any", f ->  null);
+            new Playlist("any1", new DummyAudioEngine());
         }
 
         @Ignore("Null pointer instead of argument, to be fixed.")
         @Test(expected = IllegalArgumentException.class)
         public void withNullName() {
-            new Playlist(null, f -> null);
+            new Playlist(null, new DummyAudioEngine());
         }
 
         @Test(expected = IllegalArgumentException.class)
         public void withNullSoundBuilder() {
-            new Playlist("any", null);
+            new Playlist("any2", null);
+        }
+    }
+
+    public static class Add {
+
+        @Test
+        public void happyFlow() {
+            Playlist p = new Playlist("any", new DummyAudioEngine());
+            p.addMusic(new Music("fileTest", "nameTest"));
+        }
+
+        @Test(expected = IllegalArgumentException.class)
+        public void withNull() {
+            Playlist p = new Playlist("any3", new DummyAudioEngine());
+            p.addMusic(null);
         }
     }
 }
