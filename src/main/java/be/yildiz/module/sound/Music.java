@@ -23,7 +23,6 @@
 
 package be.yildiz.module.sound;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
@@ -32,7 +31,6 @@ import lombok.Getter;
  * @author Grégory Van den Borre
  */
 @Getter
-@AllArgsConstructor
 public class Music {
 
     /**
@@ -44,4 +42,20 @@ public class Music {
      * Name given to the music.
      */
     private final String name;
+
+    public Music(String file, String name) {
+        this.file = file;
+        this.name = name;
+        assert this.invariant();
+    }
+
+    private boolean invariant() {
+        if(this.name == null) {
+            throw new IllegalArgumentException("The name cannot be null");
+        }
+        if(this.file == null) {
+            throw new IllegalArgumentException("The file cannot be null");
+        }
+        return true;
+    }
 }
