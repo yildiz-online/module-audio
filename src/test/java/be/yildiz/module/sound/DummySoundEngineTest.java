@@ -26,7 +26,7 @@ package be.yildiz.module.sound;
 /**
  * @author Grégory Van den Borre
  */
-public class SoundEngineTest {
+public class DummySoundEngineTest {
 
     public void testSoundEngine() {
         SoundEngine se = new DummyAudioEngine();
