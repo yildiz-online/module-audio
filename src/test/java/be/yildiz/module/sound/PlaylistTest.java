@@ -57,14 +57,30 @@ public class PlaylistTest {
 
         @Test
         public void happyFlow() {
-            Playlist p = new Playlist("any", new DummyAudioEngine());
+            Playlist p = new Playlist("add-happyFlow", new DummyAudioEngine());
             p.addMusic(new Music("fileTest", "nameTest"));
         }
 
         @Test(expected = IllegalArgumentException.class)
         public void withNull() {
-            Playlist p = new Playlist("any3", new DummyAudioEngine());
+            Playlist p = new Playlist("add-withNull", new DummyAudioEngine());
             p.addMusic(null);
+        }
+    }
+
+    public static class Next {
+
+        @Test
+        public void happyFlow() {
+            Playlist p = new Playlist("next-happyFlow", new DummyAudioEngine());
+            p.addMusic(new Music("fileTest", "nameTest"));
+            p.next();
+        }
+
+        @Test
+        public void withEmptyList() {
+            Playlist p = new Playlist("next-withEmpty", new DummyAudioEngine());
+            p.next();
         }
     }
 }
