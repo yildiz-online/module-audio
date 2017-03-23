@@ -23,14 +23,11 @@
 
 package be.yildiz.module.sound;
 
-import lombok.Getter;
-
 /**
  * A simple container to hold the music file and its name.
  *
  * @author Grégory Van den Borre
  */
-@Getter
 public class Music {
 
     /**
@@ -47,6 +44,14 @@ public class Music {
         this.file = file;
         this.name = name;
         assert this.invariant();
+    }
+
+    public String getFile() {
+        return file;
+    }
+
+    public String getName() {
+        return name;
     }
 
     private boolean invariant() {
