@@ -41,9 +41,10 @@ public class Music {
     private final String name;
 
     public Music(String file, String name) {
+        assert file != null;
+        assert name != null;
         this.file = file;
         this.name = name;
-        assert this.invariant();
     }
 
     public String getFile() {
@@ -52,15 +53,5 @@ public class Music {
 
     public String getName() {
         return name;
-    }
-
-    private boolean invariant() {
-        if(this.name == null) {
-            throw new IllegalArgumentException("The name cannot be null");
-        }
-        if(this.file == null) {
-            throw new IllegalArgumentException("The file cannot be null");
-        }
-        return true;
     }
 }

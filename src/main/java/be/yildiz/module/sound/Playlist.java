@@ -66,9 +66,9 @@ public final class Playlist extends BaseRegisterable implements EndPlayListener 
      */
     public Playlist(final String name, final SoundBuilder soundBuilder) {
         super(name);
+        assert soundBuilder != null;
         this.builder = soundBuilder;
         Playlist.REGISTERER.register(this);
-        assert this.invariant();
     }
 
     /**
@@ -78,6 +78,7 @@ public final class Playlist extends BaseRegisterable implements EndPlayListener 
      * @return Found material.
      */
     public static Playlist get(final String name) {
+        assert name != null;
         return Playlist.REGISTERER.get(name);
     }
 
@@ -114,16 +115,7 @@ public final class Playlist extends BaseRegisterable implements EndPlayListener 
      * @param music Music to add.
      */
     public void addMusic(final Music music) {
-        if(music == null) {
-            throw new IllegalArgumentException("Music cannot be null.");
-        }
+        assert music != null;
         this.musics.add(music);
-    }
-
-    private boolean invariant() {
-        if(this.builder == null) {
-            throw new IllegalArgumentException("SoundBuilder cannot be null.");
-        }
-        return true;
     }
 }

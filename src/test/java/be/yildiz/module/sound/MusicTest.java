@@ -43,12 +43,12 @@ public class MusicTest {
             Assert.assertEquals("testName", m.getName());
         }
 
-        @Test(expected = IllegalArgumentException.class)
+        @Test(expected = AssertionError.class)
         public void withNullFile() {
             new Music(null, "testName");
         }
 
-        @Test(expected = IllegalArgumentException.class)
+        @Test(expected = AssertionError.class)
         public void withNullName() {
             new Music("testFile", null);
         }

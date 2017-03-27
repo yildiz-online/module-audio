@@ -47,7 +47,7 @@ public class PlaylistTest {
             new Playlist(null, new DummyAudioEngine());
         }
 
-        @Test(expected = IllegalArgumentException.class)
+        @Test(expected = AssertionError.class)
         public void withNullSoundBuilder() {
             new Playlist("any2", null);
         }
@@ -61,7 +61,7 @@ public class PlaylistTest {
             p.addMusic(new Music("fileTest", "nameTest"));
         }
 
-        @Test(expected = IllegalArgumentException.class)
+        @Test(expected = AssertionError.class)
         public void withNull() {
             Playlist p = new Playlist("add-withNull", new DummyAudioEngine());
             p.addMusic(null);
