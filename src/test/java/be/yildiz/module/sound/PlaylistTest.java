@@ -41,8 +41,7 @@ public class PlaylistTest {
             new Playlist("any1", new DummyAudioEngine());
         }
 
-        @Ignore("Null pointer instead of argument, to be fixed.")
-        @Test(expected = IllegalArgumentException.class)
+        @Test(expected = AssertionError.class)
         public void withNullName() {
             new Playlist(null, new DummyAudioEngine());
         }
