@@ -25,6 +25,7 @@ package be.yildiz.module.sound;
 
 import be.yildiz.common.gameobject.Movable;
 import be.yildiz.common.log.Logger;
+import be.yildiz.common.resource.ResourcePath;
 import be.yildiz.common.vector.Point3D;
 
 /**
@@ -85,7 +86,7 @@ public abstract class SoundEngine implements AutoCloseable, SoundBuilder {
      *
      * @param path Path to use.
      */
-    public abstract void addResourcePath(String path);
+    public abstract void addResourcePath(ResourcePath path);
 
     @Override
     public final void close() {

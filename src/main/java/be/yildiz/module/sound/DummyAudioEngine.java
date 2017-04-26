@@ -23,6 +23,7 @@
 
 package be.yildiz.module.sound;
 
+import be.yildiz.common.resource.ResourcePath;
 import be.yildiz.common.vector.Point3D;
 
 /**
@@ -53,7 +54,7 @@ public final class DummyAudioEngine extends SoundEngine {
     }
 
     @Override
-    public void addResourcePath(final String path) {
+    public void addResourcePath(final ResourcePath path) {
         //Does nothing.
     }
 
