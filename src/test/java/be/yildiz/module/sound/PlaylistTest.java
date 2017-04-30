@@ -23,6 +23,7 @@
 
 package be.yildiz.module.sound;
 
+import be.yildiz.module.sound.dummy.DummyAudioEngine;
 import org.junit.Test;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;

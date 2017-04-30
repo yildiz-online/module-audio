@@ -27,6 +27,7 @@ import be.yildiz.common.gameobject.Movable;
 import be.yildiz.common.log.Logger;
 import be.yildiz.common.resource.ResourcePath;
 import be.yildiz.common.vector.Point3D;
+import be.yildiz.module.sound.dummy.DummyAudioEngine;
 
 /**
  * SoundEngine behavior.

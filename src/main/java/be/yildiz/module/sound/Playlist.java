@@ -26,6 +26,7 @@ package be.yildiz.module.sound;
 import be.yildiz.common.collections.Lists;
 import be.yildiz.common.util.BaseRegisterable;
 import be.yildiz.common.util.Registerer;
+import be.yildiz.module.sound.dummy.DummyAudioEngine;
 
 import java.util.List;
 
@@ -96,6 +97,7 @@ public final class Playlist extends BaseRegisterable implements EndPlayListener 
         this.currentStream.stop();
         if (!this.musics.isEmpty()) {
             this.currentStream = this.builder.createSound(this.musics.get(this.current).getFile());
+            this.currentStream.play();
             this.current++;
             if (this.current == this.musics.size()) {
                 this.current = 0;

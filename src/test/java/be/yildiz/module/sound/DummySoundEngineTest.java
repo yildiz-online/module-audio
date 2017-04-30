@@ -23,6 +23,8 @@
 
 package be.yildiz.module.sound;
 
+import be.yildiz.module.sound.dummy.DummyAudioEngine;
+
 /**
  * @author Grégory Van den Borre
  */

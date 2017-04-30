@@ -21,10 +21,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE  SOFTWARE.
  */
 
-package be.yildiz.module.sound;
+package be.yildiz.module.sound.dummy;
 
 import be.yildiz.common.resource.ResourcePath;
 import be.yildiz.common.vector.Point3D;
+import be.yildiz.module.sound.EndPlayListener;
+import be.yildiz.module.sound.Playlist;
+import be.yildiz.module.sound.SoundEngine;
+import be.yildiz.module.sound.SoundSource;
 
 /**
  * Dummy audio engine.
