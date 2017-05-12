@@ -100,6 +100,11 @@ public final class DummyAudioEngine extends SoundEngine {
         public void rewind() {
             //Does nothing.
         }
+
+        @Override
+        public void delete() {
+            //Does nothing.
+        }
     }
 
 }

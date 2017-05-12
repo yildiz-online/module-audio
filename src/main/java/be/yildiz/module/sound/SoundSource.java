@@ -66,4 +66,6 @@ public interface SoundSource {
      */
     void rewind();
 
+    void delete();
+
 }
