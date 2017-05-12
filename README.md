@@ -55,7 +55,7 @@ In your maven project, add the dependency
 <dependency>
     <groupId>be.yildiz-games</groupId>
     <artifactId>module-audio</artifactId>
-    <version>1.0.8</version>
+    <version>1.0.9</version>
 </dependency>
 ```
 ## Contact
