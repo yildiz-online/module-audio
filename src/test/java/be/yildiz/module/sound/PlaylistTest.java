@@ -24,9 +24,12 @@
 package be.yildiz.module.sound;
 
 import be.yildiz.module.sound.dummy.DummyAudioEngine;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;
+
+import java.security.InvalidParameterException;
 
 /**
  * @author Grégory Van den Borre
@@ -80,6 +83,25 @@ public class PlaylistTest {
         public void withEmptyList() {
             Playlist p = new Playlist("next-withEmpty", new DummyAudioEngine());
             p.next();
+        }
+    }
+
+    public static class Get {
+
+        @Test
+        public void happyFlow() {
+            new Playlist("get-happyFlow", new DummyAudioEngine());
+            Assert.assertNotNull(Playlist.get("get-happyFlow"));
+        }
+
+        @Test(expected = AssertionError.class)
+        public void withNull() {
+            Playlist.get(null);
+        }
+
+        @Test(expected = InvalidParameterException.class)
+        public void withNoResult() {
+            Playlist.get("notExisting");
         }
     }
 }
