@@ -112,18 +112,23 @@ public abstract class SoundEngine implements AutoCloseable, SoundBuilder {
         }
 
         @Override
-        public void detach(Movable other) {
-            //Does nothing.
-        }
-
-        @Override
         public void addChild(Movable other) {
             //Does nothing.
         }
 
         @Override
+        public void removeChild(Movable child) {
+
+        }
+
+        @Override
         public void attachToOptional(Movable other) {
             //Does nothing.
+        }
+
+        @Override
+        public void detachFromParent() {
+
         }
 
         @Override
@@ -142,11 +147,6 @@ public abstract class SoundEngine implements AutoCloseable, SoundBuilder {
         }
 
         @Override
-        public void setAbsolutePosition(Point3D pos) {
-            //Does nothing.
-        }
-
-        @Override
         public Point3D getDirection() {
             return Point3D.BASE_DIRECTION;
         }
@@ -159,6 +159,21 @@ public abstract class SoundEngine implements AutoCloseable, SoundBuilder {
         @Override
         public Point3D getAbsoluteDirection() {
             return this.getDirection();
+        }
+
+        @Override
+        public void setPosition(float posX, float posY, float posZ) {
+
+        }
+
+        @Override
+        public void setDirection(float dirX, float dirY, float dirZ) {
+
+        }
+
+        @Override
+        public void addOptionalChild(Movable child) {
+
         }
 
         @Override
