@@ -122,6 +122,11 @@ public abstract class SoundEngine implements AutoCloseable, SoundBuilder {
         }
 
         @Override
+        public Movable getInternal() {
+            return this;
+        }
+
+        @Override
         public void attachToOptional(Movable other) {
             //Does nothing.
         }
