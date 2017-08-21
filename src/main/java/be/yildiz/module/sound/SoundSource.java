@@ -66,6 +66,8 @@ public interface SoundSource {
      */
     void rewind();
 
+    void setGain(float gain);
+
     void delete();
 
 }
