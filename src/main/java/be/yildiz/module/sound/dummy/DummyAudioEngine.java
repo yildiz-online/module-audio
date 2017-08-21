@@ -102,6 +102,11 @@ public final class DummyAudioEngine extends AudioEngine {
         }
 
         @Override
+        public void setGain(float gain) {
+
+        }
+
+        @Override
         public void delete() {
             //Does nothing.
         }
