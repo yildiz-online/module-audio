@@ -25,9 +25,9 @@ package be.yildiz.module.sound.dummy;
 
 import be.yildiz.common.resource.ResourcePath;
 import be.yildiz.common.vector.Point3D;
+import be.yildiz.module.sound.AudioEngine;
 import be.yildiz.module.sound.EndPlayListener;
 import be.yildiz.module.sound.Playlist;
-import be.yildiz.module.sound.SoundEngine;
 import be.yildiz.module.sound.SoundSource;
 
 /**
@@ -35,7 +35,7 @@ import be.yildiz.module.sound.SoundSource;
  *
  * @author Grégory Van den Borre
  */
-public final class DummyAudioEngine extends SoundEngine {
+public final class DummyAudioEngine extends AudioEngine {
 
     @Override
     protected void closeImpl() {

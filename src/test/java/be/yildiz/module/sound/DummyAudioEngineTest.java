@@ -28,10 +28,10 @@ import be.yildiz.module.sound.dummy.DummyAudioEngine;
 /**
  * @author Grégory Van den Borre
  */
-public class DummySoundEngineTest {
+public class DummyAudioEngineTest {
 
     public void testSoundEngine() {
-        SoundEngine se = new DummyAudioEngine();
+        AudioEngine se = new DummyAudioEngine();
         se.listener.getPosition();
     }
 

@@ -30,11 +30,11 @@ import be.yildiz.common.vector.Point3D;
 import be.yildiz.module.sound.dummy.DummyAudioEngine;
 
 /**
- * SoundEngine behavior.
+ * AudioEngine behavior.
  *
  * @author Grégory Van den Borre
  */
-public abstract class SoundEngine implements AutoCloseable, SoundBuilder {
+public abstract class AudioEngine implements AutoCloseable, SoundBuilder {
 
     /**
      * User listening to the audio, used for audio 3D positioning.
