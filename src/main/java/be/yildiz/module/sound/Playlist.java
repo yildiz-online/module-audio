@@ -24,11 +24,12 @@
 package be.yildiz.module.sound;
 
 import be.yildiz.common.collections.Lists;
-import be.yildiz.common.log.Logger;
 import be.yildiz.common.util.BaseRegisterable;
 import be.yildiz.common.util.Registerer;
 import be.yildiz.module.sound.dummy.DummyAudioEngine;
 import be.yildiz.module.sound.exception.SoundCreationException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
@@ -38,6 +39,8 @@ import java.util.List;
  * @author Grégory Van den Borre
  */
 public final class Playlist extends BaseRegisterable implements EndPlayListener {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(Playlist.class);
 
     /**
      * List of all existing play lists.
@@ -107,7 +110,7 @@ public final class Playlist extends BaseRegisterable implements EndPlayListener 
                 }
                 this.currentStream.addEndPlayListener(this);
             } catch (SoundCreationException e) {
-                Logger.error(e);
+                LOGGER.error("Error creating sound:", e);
             }
         }
     }
