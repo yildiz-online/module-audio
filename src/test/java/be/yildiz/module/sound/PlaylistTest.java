@@ -24,84 +24,88 @@
 package be.yildiz.module.sound;
 
 import be.yildiz.module.sound.dummy.DummyAudioEngine;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.experimental.runners.Enclosed;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
 
 import java.security.InvalidParameterException;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * @author Grégory Van den Borre
  */
-@RunWith(Enclosed.class)
-public class PlaylistTest {
+class PlaylistTest {
 
-    public static class Constructor {
+    @Nested
+    class Constructor {
 
         @Test
-        public void happyFlow() {
+        void happyFlow() {
             new Playlist("any1", new DummyAudioEngine());
         }
 
-        @Test(expected = AssertionError.class)
-        public void withNullName() {
-            new Playlist(null, new DummyAudioEngine());
+        @Test
+        void withNullName() {
+            assertThrows(AssertionError.class, () -> new Playlist(null, new DummyAudioEngine()));
         }
 
-        @Test(expected = AssertionError.class)
-        public void withNullSoundBuilder() {
-            new Playlist("any2", null);
+        @Test
+        void withNullSoundBuilder() {
+            assertThrows(AssertionError.class, () -> new Playlist("any2", null));
         }
     }
 
-    public static class Add {
+    @Nested
+    class Add {
 
         @Test
-        public void happyFlow() {
+        void happyFlow() {
             Playlist p = new Playlist("add-happyFlow", new DummyAudioEngine());
             p.addMusic(new Music("fileTest", "nameTest"));
         }
 
-        @Test(expected = AssertionError.class)
-        public void withNull() {
+        @Test
+        void withNull() {
             Playlist p = new Playlist("add-withNull", new DummyAudioEngine());
-            p.addMusic(null);
+            assertThrows(AssertionError.class, () -> p.addMusic(null));
         }
     }
 
-    public static class Next {
+    @Nested
+    class Next {
 
         @Test
-        public void happyFlow() {
+        void happyFlow() {
             Playlist p = new Playlist("next-happyFlow", new DummyAudioEngine());
             p.addMusic(new Music("fileTest", "nameTest"));
             p.next();
         }
 
         @Test
-        public void withEmptyList() {
+        void withEmptyList() {
             Playlist p = new Playlist("next-withEmpty", new DummyAudioEngine());
             p.next();
         }
     }
 
-    public static class Get {
+    @Nested
+    class Get {
 
         @Test
-        public void happyFlow() {
+        void happyFlow() {
             new Playlist("get-happyFlow", new DummyAudioEngine());
-            Assert.assertNotNull(Playlist.get("get-happyFlow"));
+            assertNotNull(Playlist.get("get-happyFlow"));
         }
 
-        @Test(expected = AssertionError.class)
-        public void withNull() {
-            Playlist.get(null);
+        @Test
+        void withNull() {
+            assertThrows(AssertionError.class, () -> Playlist.get(null));
         }
 
-        @Test(expected = InvalidParameterException.class)
-        public void withNoResult() {
-            Playlist.get("notExisting");
+        @Test
+        void withNoResult() {
+            assertThrows(InvalidParameterException.class, () -> Playlist.get("notExisting"));
         }
     }
 }

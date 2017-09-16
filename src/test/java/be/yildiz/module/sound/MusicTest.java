@@ -23,34 +23,35 @@
 
 package be.yildiz.module.sound;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.experimental.runners.Enclosed;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * @author Grégory Van den Borre
  */
-@RunWith(Enclosed.class)
-public class MusicTest {
+class MusicTest {
 
-    public static class Constructor {
+    @Nested
+    class Constructor {
 
         @Test
-        public void happyFlow() {
+        void happyFlow() {
             Music m = new Music("testFile", "testName");
-            Assert.assertEquals("testFile", m.getFile());
-            Assert.assertEquals("testName", m.getName());
+            assertEquals("testFile", m.getFile());
+            assertEquals("testName", m.getName());
         }
 
-        @Test(expected = AssertionError.class)
-        public void withNullFile() {
-            new Music(null, "testName");
+        @Test
+        void withNullFile() {
+            assertThrows(AssertionError.class, () -> new Music(null, "testName"));
         }
 
-        @Test(expected = AssertionError.class)
-        public void withNullName() {
-            new Music("testFile", null);
+        @Test
+        void withNullName() {
+            assertThrows(AssertionError.class, () -> new Music("testFile", null));
         }
     }
 }
