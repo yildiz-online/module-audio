@@ -23,7 +23,6 @@
 
 package be.yildiz.module.sound;
 
-import be.yildiz.common.collections.Lists;
 import be.yildiz.common.util.BaseRegisterable;
 import be.yildiz.common.util.Registerer;
 import be.yildiz.module.sound.dummy.DummyAudioEngine;
@@ -31,6 +30,7 @@ import be.yildiz.module.sound.exception.SoundCreationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -50,7 +50,7 @@ public final class Playlist extends BaseRegisterable implements EndPlayListener 
     /**
      * List of file to play.
      */
-    private final List<Music> musics = Lists.newList();
+    private final List<Music> musics = new ArrayList<>();
     /**
      * Create the stream files.
      */

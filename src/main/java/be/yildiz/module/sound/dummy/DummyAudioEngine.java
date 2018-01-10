@@ -23,12 +23,12 @@
 
 package be.yildiz.module.sound.dummy;
 
-import be.yildiz.common.resource.ResourcePath;
-import be.yildiz.common.vector.Point3D;
 import be.yildiz.module.sound.AudioEngine;
 import be.yildiz.module.sound.EndPlayListener;
 import be.yildiz.module.sound.Playlist;
 import be.yildiz.module.sound.SoundSource;
+import be.yildizgames.common.file.ResourcePath;
+import be.yildizgames.common.geometry.Point3D;
 
 /**
  * Dummy audio engine.

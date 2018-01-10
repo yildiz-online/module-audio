@@ -23,10 +23,10 @@
 
 package be.yildiz.module.sound;
 
-import be.yildiz.common.gameobject.Movable;
-import be.yildiz.common.resource.ResourcePath;
-import be.yildiz.common.vector.Point3D;
 import be.yildiz.module.sound.dummy.DummyAudioEngine;
+import be.yildizgames.common.file.ResourcePath;
+import be.yildizgames.common.geometry.Movable;
+import be.yildizgames.common.geometry.Point3D;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -182,11 +182,6 @@ public abstract class AudioEngine implements AutoCloseable, SoundBuilder {
         @Override
         public void addOptionalChild(Movable child) {
 
-        }
-
-        @Override
-        public void delete() {
-            //Does nothing.
         }
     }
 }
