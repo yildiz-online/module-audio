@@ -23,10 +23,10 @@
 
 package be.yildiz.module.sound;
 
-import be.yildiz.common.util.BaseRegisterable;
-import be.yildiz.common.util.Registerer;
 import be.yildiz.module.sound.dummy.DummyAudioEngine;
 import be.yildiz.module.sound.exception.SoundCreationException;
+import be.yildizgames.common.util.BaseRegisterable;
+import be.yildizgames.common.util.Registerer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
