@@ -31,7 +31,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * AudioEngine behavior.
+ * Audio Engine behavior.
  *
  * @author Grégory Van den Borre
  */
@@ -121,7 +121,7 @@ public abstract class AudioEngine implements AutoCloseable, SoundBuilder {
 
         @Override
         public void removeChild(Movable child) {
-
+            //does nothing
         }
 
         @Override
@@ -136,7 +136,7 @@ public abstract class AudioEngine implements AutoCloseable, SoundBuilder {
 
         @Override
         public void detachFromParent() {
-
+            //does nothing
         }
 
         @Override
@@ -171,17 +171,17 @@ public abstract class AudioEngine implements AutoCloseable, SoundBuilder {
 
         @Override
         public void setPosition(float posX, float posY, float posZ) {
-
+            //does nothing
         }
 
         @Override
         public void setDirection(float dirX, float dirY, float dirZ) {
-
+            //does nothing
         }
 
         @Override
         public void addOptionalChild(Movable child) {
-
+            //does nothing
         }
 
         @Override
