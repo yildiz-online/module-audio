@@ -31,4 +31,8 @@ public class SoundCreationException extends RuntimeException {
     public SoundCreationException(Exception e) {
         super(e);
     }
+
+    public SoundCreationException(String message) {
+        super(message);
+    }
 }
