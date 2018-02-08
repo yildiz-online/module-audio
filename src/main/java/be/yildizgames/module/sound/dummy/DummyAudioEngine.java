@@ -49,11 +49,6 @@ public final class DummyAudioEngine extends AudioEngine {
     }
 
     @Override
-    public Playlist createPlaylist(final String name) {
-        return new Playlist(name, this);
-    }
-
-    @Override
     public SoundSource createSound(final String file) {
         return new EmptySoundSource();
     }

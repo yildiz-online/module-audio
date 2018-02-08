@@ -63,7 +63,7 @@ class PlaylistTest {
         @Test
         void happyFlow() {
             Playlist p = new Playlist("add-happyFlow", new DummyAudioEngine());
-            p.addMusic(new Music("fileTest", "nameTest"));
+            p.addMusic(Music.withName("fileTest", "nameTest"));
         }
 
         @Test
@@ -79,7 +79,7 @@ class PlaylistTest {
         @Test
         void happyFlow() {
             Playlist p = new Playlist("playNext-happyFlow", new DummyAudioEngine());
-            p.addMusic(new Music("fileTest", "nameTest"));
+            p.addMusic(Music.withName("fileTest", "nameTest"));
             p.playNext();
         }
 

@@ -71,7 +71,7 @@ public final class Playlist extends BaseRegisterable implements EndPlayListener 
      * @param name         Play list name, must be unique.
      * @param soundBuilder Constructor to build the audio files.
      */
-    public Playlist(final String name, final SoundBuilder soundBuilder) {
+    Playlist(final String name, final SoundBuilder soundBuilder) {
         super(name);
         assert soundBuilder != null;
         this.builder = soundBuilder;

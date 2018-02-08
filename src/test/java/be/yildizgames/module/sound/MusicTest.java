@@ -40,19 +40,19 @@ class MusicTest {
 
         @Test
         void happyFlow() {
-            Music m = new Music("testFile", "testName");
+            Music m = Music.withName("testFile", "testName");
             assertEquals("testFile", m.getFile());
             assertEquals("testName", m.getName());
         }
 
         @Test
         void withNullFile() {
-            assertThrows(AssertionError.class, () -> new Music(null, "testName"));
+            assertThrows(AssertionError.class, () -> Music.withName(null, "testName"));
         }
 
         @Test
         void withNullName() {
-            assertThrows(AssertionError.class, () -> new Music("testFile", null));
+            assertThrows(AssertionError.class, () -> Music.withName("testFile", null));
         }
     }
 }

@@ -87,7 +87,9 @@ public abstract class AudioEngine implements AutoCloseable, SoundBuilder {
      * @param name Play list name.
      * @return The built play list.
      */
-    public abstract Playlist createPlaylist(String name);
+    public final Playlist createPlaylist(final String name) {
+        return new Playlist(name, this);
+    }
 
     /**
      * Build a play list of music to be played with a random name.
@@ -102,6 +104,7 @@ public abstract class AudioEngine implements AutoCloseable, SoundBuilder {
      * Add a path to load resources.
      *
      * @param path Path to use.
+     * @return This object for chaining.
      */
     public abstract AudioEngine addResourcePath(ResourcePath path);
 
