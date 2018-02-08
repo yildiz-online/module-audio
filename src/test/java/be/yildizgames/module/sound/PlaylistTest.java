@@ -22,9 +22,9 @@
  *
  */
 
-package be.yildiz.module.sound;
+package be.yildizgames.module.sound;
 
-import be.yildiz.module.sound.dummy.DummyAudioEngine;
+import be.yildizgames.module.sound.dummy.DummyAudioEngine;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
@@ -78,15 +78,15 @@ class PlaylistTest {
 
         @Test
         void happyFlow() {
-            Playlist p = new Playlist("next-happyFlow", new DummyAudioEngine());
+            Playlist p = new Playlist("playNext-happyFlow", new DummyAudioEngine());
             p.addMusic(new Music("fileTest", "nameTest"));
-            p.next();
+            p.playNext();
         }
 
         @Test
         void withEmptyList() {
-            Playlist p = new Playlist("next-withEmpty", new DummyAudioEngine());
-            p.next();
+            Playlist p = new Playlist("playNext-withEmpty", new DummyAudioEngine());
+            p.playNext();
         }
     }
 

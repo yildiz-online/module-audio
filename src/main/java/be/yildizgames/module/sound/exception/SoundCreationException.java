@@ -22,8 +22,18 @@
  *
  */
 
+package be.yildizgames.module.sound.exception;
+
 /**
- * This package contains the audio related exceptions.
  * @author Grégory Van den Borre
  */
-package be.yildiz.module.sound.exception;
+public class SoundCreationException extends RuntimeException {
+
+    public SoundCreationException(Exception e) {
+        super(e);
+    }
+
+    public SoundCreationException(String message) {
+        super(message);
+    }
+}

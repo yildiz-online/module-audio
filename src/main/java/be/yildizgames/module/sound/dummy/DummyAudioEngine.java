@@ -22,14 +22,14 @@
  *
  */
 
-package be.yildiz.module.sound.dummy;
+package be.yildizgames.module.sound.dummy;
 
-import be.yildiz.module.sound.AudioEngine;
-import be.yildiz.module.sound.EndPlayListener;
-import be.yildiz.module.sound.Playlist;
-import be.yildiz.module.sound.SoundSource;
 import be.yildizgames.common.file.ResourcePath;
 import be.yildizgames.common.geometry.Point3D;
+import be.yildizgames.module.sound.AudioEngine;
+import be.yildizgames.module.sound.EndPlayListener;
+import be.yildizgames.module.sound.Playlist;
+import be.yildizgames.module.sound.SoundSource;
 
 /**
  * Dummy audio engine.
@@ -59,8 +59,9 @@ public final class DummyAudioEngine extends AudioEngine {
     }
 
     @Override
-    public void addResourcePath(final ResourcePath path) {
-        //Does nothing.
+    public AudioEngine addResourcePath(final ResourcePath path) {
+        return this;
+
     }
 
     /**

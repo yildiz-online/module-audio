@@ -22,12 +22,13 @@
  *
  */
 
-package be.yildiz.module.sound;
+package be.yildizgames.module.sound;
 
-import be.yildiz.module.sound.dummy.DummyAudioEngine;
 import be.yildizgames.common.file.ResourcePath;
 import be.yildizgames.common.gameobject.Movable;
 import be.yildizgames.common.geometry.Point3D;
+import be.yildizgames.common.util.StringUtil;
+import be.yildizgames.module.sound.dummy.DummyAudioEngine;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -53,9 +54,11 @@ public abstract class AudioEngine implements AutoCloseable, SoundBuilder {
      * Set a user to be considered as the audio listener.
      *
      * @param user User listener.
+     * @return This object for chaining.
      */
-    public final void setListener(Movable user) {
+    public final AudioEngine setListener(Movable user) {
         this.listener = user;
+        return this;
     }
 
     /**
@@ -87,11 +90,20 @@ public abstract class AudioEngine implements AutoCloseable, SoundBuilder {
     public abstract Playlist createPlaylist(String name);
 
     /**
+     * Build a play list of music to be played with a random name.
+     *
+     * @return The built play list.
+     */
+    public final Playlist createPlaylist() {
+        return createPlaylist(StringUtil.buildRandomString("playlist"));
+    }
+
+    /**
      * Add a path to load resources.
      *
      * @param path Path to use.
      */
-    public abstract void addResourcePath(ResourcePath path);
+    public abstract AudioEngine addResourcePath(ResourcePath path);
 
     @Override
     public final void close() {

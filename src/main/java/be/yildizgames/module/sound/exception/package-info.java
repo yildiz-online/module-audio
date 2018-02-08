@@ -22,18 +22,8 @@
  *
  */
 
-package be.yildiz.module.sound;
-
 /**
- * Listener used by the sounds to provide an end of play prompt.
- *
- * @author Grégory Van Den Borre
+ * This package contains the audio related exceptions.
+ * @author Grégory Van den Borre
  */
-@FunctionalInterface
-public interface EndPlayListener {
-
-    /**
-     * Called when a sound has finished to play.
-     */
-    void soundFinished();
-}
+package be.yildizgames.module.sound.exception;

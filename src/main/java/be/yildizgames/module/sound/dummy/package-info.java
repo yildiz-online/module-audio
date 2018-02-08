@@ -22,18 +22,8 @@
  *
  */
 
-package be.yildiz.module.sound;
-
-import be.yildiz.module.sound.dummy.DummyAudioEngine;
-
 /**
+ * This package contains the dummy implementation for the sound engine.
  * @author Grégory Van den Borre
  */
-public class DummyAudioEngineTest {
-
-    public void testSoundEngine() {
-        AudioEngine se = new DummyAudioEngine();
-        se.listener.getPosition();
-    }
-
-}
+package be.yildizgames.module.sound.dummy;

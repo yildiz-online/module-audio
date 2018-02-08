@@ -22,10 +22,22 @@
  *
  */
 
-/**
- * Contains the callses to manage the engine audio part.
- *
- * @author Grégory Van den Borre
- */
-package be.yildiz.module.sound;
+package be.yildizgames.module.sound;
 
+/**
+ * Build a stream sound from a file.
+ *
+ * @author Grégory Van Den Borre
+ */
+@FunctionalInterface
+public interface SoundBuilder {
+
+    /**
+     * Build a SoundSource from a file.
+     *
+     * @param file File to load.
+     * @return The built SoundSource.
+     */
+    SoundSource createSound(final String file);
+
+}

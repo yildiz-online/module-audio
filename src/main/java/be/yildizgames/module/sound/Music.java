@@ -22,22 +22,47 @@
  *
  */
 
-package be.yildiz.module.sound;
+package be.yildizgames.module.sound;
+
+import be.yildizgames.common.util.StringUtil;
 
 /**
- * Build a stream sound from a file.
+ * A simple container to hold the music file and its name.
  *
- * @author Grégory Van Den Borre
+ * @author Grégory Van den Borre
  */
-@FunctionalInterface
-public interface SoundBuilder {
+public class Music {
 
     /**
-     * Build a SoundSource from a file.
-     *
-     * @param file File to load.
-     * @return The built SoundSource.
+     * Full path and name of the music file: path + name + extension.
      */
-    SoundSource createSound(final String file);
+    private final String file;
 
+    /**
+     * Name given to the music.
+     */
+    private final String name;
+
+    private Music(String file, String name) {
+        assert file != null;
+        assert name != null;
+        this.file = file;
+        this.name = name;
+    }
+
+    public static Music fromFile(String file) {
+        return new Music(file, StringUtil.buildRandomString("music"));
+    }
+
+    public static Music withName(String file, String name) {
+        return new Music(file, name);
+    }
+
+    public String getFile() {
+        return file;
+    }
+
+    public String getName() {
+        return name;
+    }
 }

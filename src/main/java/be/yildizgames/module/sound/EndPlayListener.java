@@ -22,35 +22,18 @@
  *
  */
 
-package be.yildiz.module.sound;
-
-import be.yildizgames.common.file.FileResource;
+package be.yildizgames.module.sound;
 
 /**
- * @author Grégory Van den Borre
+ * Listener used by the sounds to provide an end of play prompt.
+ *
+ * @author Grégory Van Den Borre
  */
-public class AudioFile {
+@FunctionalInterface
+public interface EndPlayListener {
 
-    private final FileResource.FileType type;
-
-    public final String name;
-
-    public  AudioFile(FileResource.FileType type, String name) {
-        this.type = type;
-        this.name = name;
-    }
-
-    public static AudioFile vfs(String name) {
-        return new AudioFile(FileResource.FileType.VFS, name);
-    }
-
-    public static AudioFile file(String name) {
-        return new AudioFile(FileResource.FileType.FILE, name);
-    }
-
-    public final boolean isVfs() {
-        return this.type == FileResource.FileType.VFS;
-    }
-
-
+    /**
+     * Called when a sound has finished to play.
+     */
+    void soundFinished();
 }

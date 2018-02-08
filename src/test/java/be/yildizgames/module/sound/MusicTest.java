@@ -22,7 +22,7 @@
  *
  */
 
-package be.yildiz.module.sound;
+package be.yildizgames.module.sound;
 
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;

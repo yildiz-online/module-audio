@@ -22,12 +22,12 @@
  *
  */
 
-package be.yildiz.module.sound;
+package be.yildizgames.module.sound;
 
-import be.yildiz.module.sound.dummy.DummyAudioEngine;
-import be.yildiz.module.sound.exception.SoundCreationException;
 import be.yildizgames.common.util.BaseRegisterable;
 import be.yildizgames.common.util.Registerer;
+import be.yildizgames.module.sound.dummy.DummyAudioEngine;
+import be.yildizgames.module.sound.exception.SoundCreationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -97,9 +97,9 @@ public final class Playlist extends BaseRegisterable implements EndPlayListener 
     }
 
     /**
-     * Play the next music in the list.
+     * Play the playNext music in the list.
      */
-    public void next() {
+    public void playNext() {
         this.currentStream.stop();
         if (!this.musics.isEmpty()) {
             try {
@@ -118,16 +118,18 @@ public final class Playlist extends BaseRegisterable implements EndPlayListener 
 
     @Override
     public void soundFinished() {
-        this.next();
+        this.playNext();
     }
 
     /**
      * Add a music to this playlist.
      *
      * @param music Music to add.
+     * @return This object for chaining.
      */
-    public void addMusic(final Music music) {
+    public Playlist addMusic(final Music music) {
         assert music != null;
         this.musics.add(music);
+        return this;
     }
 }

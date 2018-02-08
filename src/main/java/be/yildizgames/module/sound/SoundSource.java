@@ -22,7 +22,7 @@
  *
  */
 
-package be.yildiz.module.sound;
+package be.yildizgames.module.sound;
 
 
 import be.yildizgames.common.geometry.Point3D;

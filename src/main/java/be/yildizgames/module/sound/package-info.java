@@ -22,37 +22,10 @@
  *
  */
 
-package be.yildiz.module.sound;
-
 /**
- * A simple container to hold the music file and its name.
+ * Contains the callses to manage the engine audio part.
  *
  * @author Grégory Van den Borre
  */
-public class Music {
+package be.yildizgames.module.sound;
 
-    /**
-     * Full path and name of the music file: path + name + extension.
-     */
-    private final String file;
-
-    /**
-     * Name given to the music.
-     */
-    private final String name;
-
-    public Music(String file, String name) {
-        assert file != null;
-        assert name != null;
-        this.file = file;
-        this.name = name;
-    }
-
-    public String getFile() {
-        return file;
-    }
-
-    public String getName() {
-        return name;
-    }
-}

@@ -22,18 +22,35 @@
  *
  */
 
-package be.yildiz.module.sound.exception;
+package be.yildizgames.module.sound;
+
+import be.yildizgames.common.file.FileResource;
 
 /**
  * @author Grégory Van den Borre
  */
-public class SoundCreationException extends RuntimeException {
+public class AudioFile {
 
-    public SoundCreationException(Exception e) {
-        super(e);
+    private final FileResource.FileType type;
+
+    public final String name;
+
+    public  AudioFile(FileResource.FileType type, String name) {
+        this.type = type;
+        this.name = name;
     }
 
-    public SoundCreationException(String message) {
-        super(message);
+    public static AudioFile vfs(String name) {
+        return new AudioFile(FileResource.FileType.VFS, name);
     }
+
+    public static AudioFile file(String name) {
+        return new AudioFile(FileResource.FileType.FILE, name);
+    }
+
+    public final boolean isVfs() {
+        return this.type == FileResource.FileType.VFS;
+    }
+
+
 }
