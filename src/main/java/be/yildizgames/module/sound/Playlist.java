@@ -27,7 +27,6 @@ package be.yildizgames.module.sound;
 import be.yildizgames.common.util.BaseRegisterable;
 import be.yildizgames.common.util.Registerer;
 import be.yildizgames.module.sound.dummy.DummyAudioEngine;
-import be.yildizgames.module.sound.exception.SoundCreationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

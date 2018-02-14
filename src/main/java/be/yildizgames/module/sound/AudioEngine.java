@@ -27,10 +27,10 @@ package be.yildizgames.module.sound;
 import be.yildizgames.common.file.ResourcePath;
 import be.yildizgames.common.gameobject.Movable;
 import be.yildizgames.common.geometry.Point3D;
+import be.yildizgames.common.logging.LogFactory;
 import be.yildizgames.common.util.StringUtil;
 import be.yildizgames.module.sound.dummy.DummyAudioEngine;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Audio Engine behavior.
@@ -39,7 +39,7 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class AudioEngine implements AutoCloseable, SoundBuilder {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(AudioEngine.class);
+    private static final Logger LOGGER = LogFactory.getInstance().getLogger(AudioEngine.class);
 
     /**
      * User listening to the audio, used for audio 3D positioning.
@@ -121,7 +121,7 @@ public abstract class AudioEngine implements AutoCloseable, SoundBuilder {
     /**
      * Empty implementation of a movable.
      *
-     * @Author Grégory Van den borre.
+     * @author Grégory Van den borre.
      */
     private static final class DefaultListener implements Movable {
 

@@ -22,7 +22,7 @@
  *
  */
 
-package be.yildizgames.module.sound.exception;
+package be.yildizgames.module.sound;
 
 /**
  * @author Grégory Van den Borre
