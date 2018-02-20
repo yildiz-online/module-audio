@@ -22,47 +22,8 @@
  *
  */
 
-package be.yildizgames.module.sound;
-
-import be.yildizgames.common.util.StringUtil;
-
 /**
- * A simple container to hold the music file and its name.
- *
+ * This package contains the dummy implementation for the audio engine.
  * @author Grégory Van den Borre
  */
-public class Music {
-
-    /**
-     * Full path and name of the music file: path + name + extension.
-     */
-    private final String file;
-
-    /**
-     * Name given to the music.
-     */
-    private final String name;
-
-    private Music(String file, String name) {
-        assert file != null;
-        assert name != null;
-        this.file = file;
-        this.name = name;
-    }
-
-    public static Music fromFile(String file) {
-        return new Music(file, StringUtil.buildRandomString("music"));
-    }
-
-    public static Music withName(String file, String name) {
-        return new Music(file, name);
-    }
-
-    public String getFile() {
-        return file;
-    }
-
-    public String getName() {
-        return name;
-    }
-}
+package be.yildizgames.module.audio.dummy;

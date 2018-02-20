@@ -22,11 +22,10 @@
  *
  */
 
-package be.yildizgames.module.sound;
+package be.yildizgames.module.audio;
 
 import be.yildizgames.common.util.BaseRegisterable;
 import be.yildizgames.common.util.Registerer;
-import be.yildizgames.module.sound.dummy.DummyAudioEngine;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -62,7 +61,7 @@ public final class Playlist extends BaseRegisterable implements EndPlayListener 
     /**
      * Currently played music.
      */
-    private SoundSource currentStream = new DummyAudioEngine.EmptySoundSource();
+    private SoundSource currentStream = new EmptySoundSource();
 
     /**
      * Full constructor.
@@ -110,7 +109,7 @@ public final class Playlist extends BaseRegisterable implements EndPlayListener 
                 }
                 this.currentStream.addEndPlayListener(this);
             } catch (SoundCreationException e) {
-                LOGGER.error("Error creating sound:", e);
+                LOGGER.error("Error creating audio:", e);
             }
         }
     }

@@ -22,8 +22,18 @@
  *
  */
 
+package be.yildizgames.module.audio;
+
 /**
- * This package contains the dummy implementation for the sound engine.
- * @author Grégory Van den Borre
+ * Listener used by the sounds to provide an end of play prompt.
+ *
+ * @author Grégory Van Den Borre
  */
-package be.yildizgames.module.sound.dummy;
+@FunctionalInterface
+public interface EndPlayListener {
+
+    /**
+     * Called when a audio has finished to play.
+     */
+    void soundFinished();
+}

@@ -22,54 +22,18 @@
  *
  */
 
-package be.yildizgames.module.sound;
-
-
-import be.yildizgames.common.geometry.Point3D;
+package be.yildizgames.module.audio;
 
 /**
- * A simple sound.
- *
  * @author Grégory Van den Borre
  */
-public interface SoundSource {
+public class SoundCreationException extends RuntimeException {
 
-    /**
-     * Start playing the source associated to this object.
-     */
-    void play();
+    public SoundCreationException(Exception e) {
+        super(e);
+    }
 
-    void addEndPlayListener(EndPlayListener listener);
-
-    /**
-     * Stop playing this source.
-     */
-    void stop();
-
-    /**
-     * @return true if the sound is playing or paused, false otherwise.
-     */
-    boolean isPlaying();
-
-    /**
-     * Set the sound position in the 3d space.
-     *
-     * @param pos New position.
-     */
-    void setPosition(final Point3D pos);
-
-    /**
-     * The sound will be played in loop until stop is called.
-     */
-    void loop();
-
-    /**
-     * Reset the sound at its beginning.
-     */
-    void rewind();
-
-    void setGain(float gain);
-
-    void delete();
-
+    public SoundCreationException(String message) {
+        super(message);
+    }
 }

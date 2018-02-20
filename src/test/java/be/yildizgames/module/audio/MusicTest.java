@@ -22,18 +22,37 @@
  *
  */
 
-package be.yildizgames.module.sound;
+package be.yildizgames.module.audio;
+
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * @author Grégory Van den Borre
  */
-public class SoundCreationException extends RuntimeException {
+class MusicTest {
 
-    public SoundCreationException(Exception e) {
-        super(e);
-    }
+    @Nested
+    class Constructor {
 
-    public SoundCreationException(String message) {
-        super(message);
+        @Test
+        void happyFlow() {
+            Music m = Music.withName("testFile", "testName");
+            assertEquals("testFile", m.getFile());
+            assertEquals("testName", m.getName());
+        }
+
+        @Test
+        void withNullFile() {
+            assertThrows(AssertionError.class, () -> Music.withName(null, "testName"));
+        }
+
+        @Test
+        void withNullName() {
+            assertThrows(AssertionError.class, () -> Music.withName("testFile", null));
+        }
     }
 }

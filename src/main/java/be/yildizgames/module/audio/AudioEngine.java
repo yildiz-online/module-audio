@@ -22,15 +22,17 @@
  *
  */
 
-package be.yildizgames.module.sound;
+package be.yildizgames.module.audio;
 
 import be.yildizgames.common.file.ResourcePath;
 import be.yildizgames.common.gameobject.Movable;
 import be.yildizgames.common.geometry.Point3D;
 import be.yildizgames.common.logging.LogFactory;
 import be.yildizgames.common.util.StringUtil;
-import be.yildizgames.module.sound.dummy.DummyAudioEngine;
+import be.yildizgames.module.audio.dummy.DummyAudioEngineProvider;
 import org.slf4j.Logger;
+
+import java.util.ServiceLoader;
 
 /**
  * Audio Engine behavior.
@@ -48,7 +50,16 @@ public abstract class AudioEngine implements AutoCloseable, SoundBuilder {
     /**
      * Currently played music.
      */
-    private SoundSource musicPlaying = new DummyAudioEngine.EmptySoundSource();
+    private SoundSource musicPlaying = new EmptySoundSource();
+
+    protected AudioEngine() {
+        super();
+    }
+
+    public static AudioEngine getEngine() {
+        ServiceLoader<AudioEngineProvider> provider = ServiceLoader.load(AudioEngineProvider.class);
+        return provider.findFirst().orElseGet(DummyAudioEngineProvider::new).getAudioEngine();
+    }
 
     /**
      * Set a user to be considered as the audio listener.
@@ -67,7 +78,7 @@ public abstract class AudioEngine implements AutoCloseable, SoundBuilder {
     public abstract void update();
 
     /**
-     * Test the audio positioning by playing sound with different positions.
+     * Test the audio positioning by playing audio with different positions.
      */
     public final void testAudio() {
         SoundSource source = this.createSound("test.wav");

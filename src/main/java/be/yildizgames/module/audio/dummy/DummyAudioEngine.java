@@ -22,21 +22,23 @@
  *
  */
 
-package be.yildizgames.module.sound.dummy;
+package be.yildizgames.module.audio.dummy;
 
 import be.yildizgames.common.file.ResourcePath;
-import be.yildizgames.common.geometry.Point3D;
-import be.yildizgames.module.sound.AudioEngine;
-import be.yildizgames.module.sound.EndPlayListener;
-import be.yildizgames.module.sound.Playlist;
-import be.yildizgames.module.sound.SoundSource;
+import be.yildizgames.module.audio.AudioEngine;
+import be.yildizgames.module.audio.EmptySoundSource;
+import be.yildizgames.module.audio.SoundSource;
 
 /**
  * Dummy audio engine.
  *
  * @author Grégory Van den Borre
  */
-public final class DummyAudioEngine extends AudioEngine {
+final class DummyAudioEngine extends AudioEngine {
+
+    DummyAudioEngine() {
+        super();
+    }
 
     @Override
     protected void closeImpl() {
@@ -57,56 +59,6 @@ public final class DummyAudioEngine extends AudioEngine {
     public AudioEngine addResourcePath(final ResourcePath path) {
         return this;
 
-    }
-
-    /**
-     * Dummy sound source.
-     */
-    public static final class EmptySoundSource implements SoundSource {
-        @Override
-        public void play() {
-            //Does nothing.
-        }
-
-        @Override
-        public void addEndPlayListener(EndPlayListener listener) {
-            //Does nothing
-        }
-
-        @Override
-        public void stop() {
-            //Does nothing.
-        }
-
-        @Override
-        public boolean isPlaying() {
-            return false;
-        }
-
-        @Override
-        public void setPosition(Point3D pos) {
-            //Does nothing.
-        }
-
-        @Override
-        public void loop() {
-            //Does nothing.
-        }
-
-        @Override
-        public void rewind() {
-            //Does nothing.
-        }
-
-        @Override
-        public void setGain(float gain) {
-            //Does nothing.
-        }
-
-        @Override
-        public void delete() {
-            //Does nothing.
-        }
     }
 
 }

@@ -22,35 +22,54 @@
  *
  */
 
-package be.yildizgames.module.sound;
+package be.yildizgames.module.audio;
 
-import be.yildizgames.common.file.FileResource;
+
+import be.yildizgames.common.geometry.Point3D;
 
 /**
+ * A simple audio.
+ *
  * @author Grégory Van den Borre
  */
-public class AudioFile {
+public interface SoundSource {
 
-    private final FileResource.FileType type;
+    /**
+     * Start playing the source associated to this object.
+     */
+    void play();
 
-    public final String name;
+    void addEndPlayListener(EndPlayListener listener);
 
-    public  AudioFile(FileResource.FileType type, String name) {
-        this.type = type;
-        this.name = name;
-    }
+    /**
+     * Stop playing this source.
+     */
+    void stop();
 
-    public static AudioFile vfs(String name) {
-        return new AudioFile(FileResource.FileType.VFS, name);
-    }
+    /**
+     * @return true if the audio is playing or paused, false otherwise.
+     */
+    boolean isPlaying();
 
-    public static AudioFile file(String name) {
-        return new AudioFile(FileResource.FileType.FILE, name);
-    }
+    /**
+     * Set the audio position in the 3d space.
+     *
+     * @param pos New position.
+     */
+    void setPosition(final Point3D pos);
 
-    public final boolean isVfs() {
-        return this.type == FileResource.FileType.VFS;
-    }
+    /**
+     * The audio will be played in loop until stop is called.
+     */
+    void loop();
 
+    /**
+     * Reset the audio at its beginning.
+     */
+    void rewind();
+
+    void setGain(float gain);
+
+    void delete();
 
 }

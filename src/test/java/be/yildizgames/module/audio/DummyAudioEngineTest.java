@@ -22,9 +22,9 @@
  *
  */
 
-package be.yildizgames.module.sound;
+package be.yildizgames.module.audio;
 
-import be.yildizgames.module.sound.dummy.DummyAudioEngine;
+import be.yildizgames.module.audio.dummy.DummyAudioEngineProvider;
 
 /**
  * @author Grégory Van den Borre
@@ -32,7 +32,7 @@ import be.yildizgames.module.sound.dummy.DummyAudioEngine;
 public class DummyAudioEngineTest {
 
     public void testSoundEngine() {
-        AudioEngine se = new DummyAudioEngine();
+        AudioEngine se = new DummyAudioEngineProvider().getAudioEngine();
         se.listener.getPosition();
     }
 

@@ -22,22 +22,35 @@
  *
  */
 
-package be.yildizgames.module.sound;
+package be.yildizgames.module.audio;
+
+import be.yildizgames.common.file.FileResource;
 
 /**
- * Build a stream sound from a file.
- *
- * @author Grégory Van Den Borre
+ * @author Grégory Van den Borre
  */
-@FunctionalInterface
-public interface SoundBuilder {
+public class AudioFile {
 
-    /**
-     * Build a SoundSource from a file.
-     *
-     * @param file File to load.
-     * @return The built SoundSource.
-     */
-    SoundSource createSound(final String file);
+    private final FileResource.FileType type;
+
+    public final String name;
+
+    public  AudioFile(FileResource.FileType type, String name) {
+        this.type = type;
+        this.name = name;
+    }
+
+    public static AudioFile vfs(String name) {
+        return new AudioFile(FileResource.FileType.VFS, name);
+    }
+
+    public static AudioFile file(String name) {
+        return new AudioFile(FileResource.FileType.FILE, name);
+    }
+
+    public final boolean isVfs() {
+        return this.type == FileResource.FileType.VFS;
+    }
+
 
 }

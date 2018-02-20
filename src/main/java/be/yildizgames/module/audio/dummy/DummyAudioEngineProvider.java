@@ -22,18 +22,18 @@
  *
  */
 
-package be.yildizgames.module.sound;
+package be.yildizgames.module.audio.dummy;
+
+import be.yildizgames.module.audio.AudioEngine;
+import be.yildizgames.module.audio.AudioEngineProvider;
 
 /**
- * Listener used by the sounds to provide an end of play prompt.
- *
- * @author Grégory Van Den Borre
+ * @author Grégory Van den Borre
  */
-@FunctionalInterface
-public interface EndPlayListener {
+public class DummyAudioEngineProvider implements AudioEngineProvider {
 
-    /**
-     * Called when a sound has finished to play.
-     */
-    void soundFinished();
+    @Override
+    public AudioEngine getAudioEngine() {
+        return new DummyAudioEngine();
+    }
 }

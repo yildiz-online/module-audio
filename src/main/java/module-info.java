@@ -31,6 +31,5 @@ module be.yildizgames.module.audio {
 
     requires slf4j.api;
 
-    exports be.yildizgames.module.sound;
-    exports be.yildizgames.module.sound.dummy;
+    exports be.yildizgames.module.audio;
 }

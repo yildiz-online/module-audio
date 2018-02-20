@@ -22,37 +22,10 @@
  *
  */
 
-package be.yildizgames.module.sound;
-
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 /**
+ * Contains the callses to manage the engine audio part.
+ *
  * @author Grégory Van den Borre
  */
-class MusicTest {
+package be.yildizgames.module.audio;
 
-    @Nested
-    class Constructor {
-
-        @Test
-        void happyFlow() {
-            Music m = Music.withName("testFile", "testName");
-            assertEquals("testFile", m.getFile());
-            assertEquals("testName", m.getName());
-        }
-
-        @Test
-        void withNullFile() {
-            assertThrows(AssertionError.class, () -> Music.withName(null, "testName"));
-        }
-
-        @Test
-        void withNullName() {
-            assertThrows(AssertionError.class, () -> Music.withName("testFile", null));
-        }
-    }
-}
