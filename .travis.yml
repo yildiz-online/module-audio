@@ -1,23 +1,10 @@
-env:
-  global:
-    - secure: "U0i3qdmA4Zt931C1rDowynUet7adwa4qcYlVnDQNH/kj8elmJIkG15SIS1XI6QJmlkFDQ7d8ttjmo66Ddeaa6ivnJCXlCP50KioT86f9qyk5niv8SKPtjLZOB0k1uj5aAb/AVS8oqYdGyuxYdSW0psdRa4q8G4selcMQnf8uaYCXYwstKEmXWq0i/HxiADFRQS+JcNCBTOCvm7kWR94xDklUeZq+FfxmZqYlU/ab5SPRtRM73Z8QSbmGSxgB+7XIRa9wmVARYY+MMatkVR46IU6dnq51ybxAf+jCrgwsRqRfjyRfyjy5BpwbSzMw2qNSonYY5aS96K1WcGPeAiNw9RDkNyWNRjFyU/efgFsM1IFL09RPUyK0+4J7rgHlSIgbcU3Hj2R9MqBdUAi1Ke0ziuJRgEB1UWj0Vkf2Nn4iXEkztkk2km0cTtbIv2rCcFMS4oglZ9Dlt3Km249mbSHlQTqWdrR4LOZLLF1yYUUetXNPM27+JYl2F8dTrH0a0oTAGG6ldwfg6FAxus/isWEV74AeA5yeafTzQujrWgPyEwLjRHzQdtrXDdAtN3jE6jNUVupjGfg/Ga5LsbgfqrRh9QWtu+91SfxnIteAd7EL0kx1M8yJXFEi7s++3M+Gj80mkOfGKzJMeY0Dum372hUxfvHe63qU1bZ/Y58HcsWinaw="
+sudo: required
 
+services:
+  - docker
 
-language: java
-jdk:
-  - oraclejdk9
-
-addons:
-  coverity_scan:
-    project:
-      name: "yildiz-online/module-audio"
-      description: "Build submitted via Travis CI"
-    notification_email: vandenborre.gregory@hotmail.fr
-    build_command_prepend: "mvn clean"
-    build_command:   "mvn -DskipTests=true compile -s settings.xml"
-    branch_pattern: master
+before_install:
+  - docker pull moussavdb/build-java
 
 script:
-  - mvn -V -B -s settings.xml test
-install:
-  - mvn -V -B -s settings.xml clean install
+  - docker run -v $PWD:/src -w /src moussavdb/build-java mvn -V -s settings.xml org.jacoco:jacoco-maven-plugin:prepare-agent clean install sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=$SONAR_ORGANIZATION -Dsonar.login=$SONAR
