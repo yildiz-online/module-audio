@@ -25,7 +25,7 @@
 package be.yildizgames.module.audio.dummy;
 
 import be.yildizgames.common.file.ResourcePath;
-import be.yildizgames.module.audio.AudioEngine;
+import be.yildizgames.module.audio.BaseAudioEngine;
 import be.yildizgames.module.audio.EmptySoundSource;
 import be.yildizgames.module.audio.SoundSource;
 
@@ -34,7 +34,7 @@ import be.yildizgames.module.audio.SoundSource;
  *
  * @author Grégory Van den Borre
  */
-final class DummyAudioEngine extends AudioEngine {
+final class DummyAudioEngine extends BaseAudioEngine {
 
     DummyAudioEngine() {
         super();
@@ -56,7 +56,7 @@ final class DummyAudioEngine extends AudioEngine {
     }
 
     @Override
-    public AudioEngine addResourcePath(final ResourcePath path) {
+    public BaseAudioEngine addResourcePath(final ResourcePath path) {
         return this;
 
     }

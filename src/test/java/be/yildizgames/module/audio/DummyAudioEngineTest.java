@@ -32,7 +32,7 @@ import be.yildizgames.module.audio.dummy.DummyAudioEngineProvider;
 public class DummyAudioEngineTest {
 
     public void testSoundEngine() {
-        AudioEngine se = new DummyAudioEngineProvider().getAudioEngine();
+        BaseAudioEngine se = new DummyAudioEngineProvider().getAudioEngine();
         se.listener.getPosition();
     }
 

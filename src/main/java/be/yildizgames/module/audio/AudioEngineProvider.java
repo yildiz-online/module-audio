@@ -29,5 +29,5 @@ package be.yildizgames.module.audio;
  */
 public interface AudioEngineProvider {
 
-    AudioEngine getAudioEngine();
+    BaseAudioEngine getAudioEngine();
 }
