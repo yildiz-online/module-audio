@@ -26,10 +26,10 @@ package be.yildizgames.module.audio;
 
 import be.yildizgames.common.gameobject.Movable;
 import be.yildizgames.common.geometry.Point3D;
-import be.yildizgames.common.logging.LogFactory;
 import be.yildizgames.common.util.StringUtil;
 import be.yildizgames.module.audio.dummy.DummyAudioEngineProvider;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ServiceLoader;
 
@@ -40,7 +40,7 @@ import java.util.ServiceLoader;
  */
 public abstract class BaseAudioEngine implements AutoCloseable, AudioEngine {
 
-    private static final Logger LOGGER = LogFactory.getInstance().getLogger(BaseAudioEngine.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(BaseAudioEngine.class);
 
     /**
      * User listening to the audio, used for audio 3D positioning.

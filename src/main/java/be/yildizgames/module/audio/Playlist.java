@@ -24,10 +24,10 @@
 
 package be.yildizgames.module.audio;
 
-import be.yildizgames.common.logging.LogFactory;
 import be.yildizgames.common.util.BaseRegisterable;
 import be.yildizgames.common.util.Registerer;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +39,7 @@ import java.util.List;
  */
 public final class Playlist extends BaseRegisterable implements EndPlayListener {
 
-    private static final Logger LOGGER = LogFactory.getInstance().getLogger(Playlist.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Playlist.class);
 
     /**
      * List of all existing play lists.
