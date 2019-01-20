@@ -67,16 +67,6 @@
           <url>https://repo.maven.apache.org/maven2/</url>
         </repository>
         <repository>
-          <id>spring</id>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
-          <url>http://repo.spring.io/libs-release</url>
-        </repository>
-        <repository>
           <id>yildiz-engine-nexus-release</id>
           <releases>
             <enabled>true</enabled>
