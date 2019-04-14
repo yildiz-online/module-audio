@@ -25,6 +25,7 @@
 package be.yildizgames.module.audio;
 
 import be.yildizgames.module.audio.dummy.DummyAudioEngineProvider;
+import be.yildizgames.module.vfs.dummy.DummyVfs;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
@@ -43,12 +44,12 @@ public class PlaylistTest {
 
         @Test
         public void happyFlow() {
-            new Playlist("any1", new DummyAudioEngineProvider().getAudioEngine());
+            new Playlist("any1", new DummyAudioEngineProvider().getAudioEngine(new DummyVfs()));
         }
 
         @Test
         public void withNullName() {
-            assertThrows(AssertionError.class, () -> new Playlist(null, new DummyAudioEngineProvider().getAudioEngine()));
+            assertThrows(AssertionError.class, () -> new Playlist(null, new DummyAudioEngineProvider().getAudioEngine(new DummyVfs())));
         }
 
         @Test
@@ -62,13 +63,13 @@ public class PlaylistTest {
 
         @Test
         public void happyFlow() {
-            Playlist p = new Playlist("add-happyFlow", new DummyAudioEngineProvider().getAudioEngine());
+            Playlist p = new Playlist("add-happyFlow", new DummyAudioEngineProvider().getAudioEngine(new DummyVfs()));
             p.addMusic(Music.withName("fileTest", "nameTest"));
         }
 
         @Test
         public void withNull() {
-            Playlist p = new Playlist("add-withNull", new DummyAudioEngineProvider().getAudioEngine());
+            Playlist p = new Playlist("add-withNull", new DummyAudioEngineProvider().getAudioEngine(new DummyVfs()));
             assertThrows(AssertionError.class, () -> p.addMusic(null));
         }
     }
@@ -78,14 +79,14 @@ public class PlaylistTest {
 
         @Test
         public void happyFlow() {
-            Playlist p = new Playlist("playNext-happyFlow", new DummyAudioEngineProvider().getAudioEngine());
+            Playlist p = new Playlist("playNext-happyFlow", new DummyAudioEngineProvider().getAudioEngine(new DummyVfs()));
             p.addMusic(Music.withName("fileTest", "nameTest"));
             p.playNext();
         }
 
         @Test
         public void withEmptyList() {
-            Playlist p = new Playlist("playNext-withEmpty", new DummyAudioEngineProvider().getAudioEngine());
+            Playlist p = new Playlist("playNext-withEmpty", new DummyAudioEngineProvider().getAudioEngine(new DummyVfs()));
             p.playNext();
         }
     }
@@ -95,7 +96,7 @@ public class PlaylistTest {
 
         @Test
         public void happyFlow() {
-            new Playlist("get-happyFlow", new DummyAudioEngineProvider().getAudioEngine());
+            new Playlist("get-happyFlow", new DummyAudioEngineProvider().getAudioEngine(new DummyVfs()));
             assertNotNull(Playlist.get("get-happyFlow"));
         }
 
