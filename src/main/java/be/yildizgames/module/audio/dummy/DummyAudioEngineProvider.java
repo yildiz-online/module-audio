@@ -26,6 +26,7 @@ package be.yildizgames.module.audio.dummy;
 
 import be.yildizgames.module.audio.BaseAudioEngine;
 import be.yildizgames.module.audio.AudioEngineProvider;
+import be.yildizgames.module.vfs.Vfs;
 
 /**
  * @author Grégory Van den Borre
@@ -33,7 +34,7 @@ import be.yildizgames.module.audio.AudioEngineProvider;
 public class DummyAudioEngineProvider implements AudioEngineProvider {
 
     @Override
-    public BaseAudioEngine getAudioEngine() {
+    public BaseAudioEngine getAudioEngine(Vfs vfs) {
         return new DummyAudioEngine();
     }
 }

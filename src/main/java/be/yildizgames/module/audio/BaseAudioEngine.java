@@ -28,6 +28,7 @@ import be.yildizgames.common.gameobject.Movable;
 import be.yildizgames.common.geometry.Point3D;
 import be.yildizgames.common.util.StringUtil;
 import be.yildizgames.module.audio.dummy.DummyAudioEngineProvider;
+import be.yildizgames.module.vfs.Vfs;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -55,9 +56,9 @@ public abstract class BaseAudioEngine implements AutoCloseable, AudioEngine {
         super();
     }
 
-    public static BaseAudioEngine getEngine() {
+    public static BaseAudioEngine getEngine(Vfs vfs) {
         ServiceLoader<AudioEngineProvider> provider = ServiceLoader.load(AudioEngineProvider.class);
-        return provider.findFirst().orElseGet(DummyAudioEngineProvider::new).getAudioEngine();
+        return provider.findFirst().orElseGet(DummyAudioEngineProvider::new).getAudioEngine(vfs);
     }
 
     /**
