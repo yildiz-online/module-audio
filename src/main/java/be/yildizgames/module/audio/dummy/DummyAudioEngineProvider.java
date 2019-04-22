@@ -34,7 +34,7 @@ import be.yildizgames.module.vfs.Vfs;
 public class DummyAudioEngineProvider implements AudioEngineProvider {
 
     @Override
-    public BaseAudioEngine getAudioEngine(Vfs vfs) {
+    public BaseAudioEngine getAudioEngine() {
         return new DummyAudioEngine();
     }
 }

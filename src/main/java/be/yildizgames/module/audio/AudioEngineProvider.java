@@ -24,12 +24,10 @@
 
 package be.yildizgames.module.audio;
 
-import be.yildizgames.module.vfs.Vfs;
-
 /**
  * @author Grégory Van den Borre
  */
 public interface AudioEngineProvider {
 
-    BaseAudioEngine getAudioEngine(Vfs vfs);
+    BaseAudioEngine getAudioEngine();
 }
