@@ -24,9 +24,8 @@
 
 package be.yildizgames.module.audio.dummy;
 
-import be.yildizgames.module.audio.BaseAudioEngine;
 import be.yildizgames.module.audio.AudioEngineProvider;
-import be.yildizgames.module.vfs.Vfs;
+import be.yildizgames.module.audio.BaseAudioEngine;
 
 /**
  * @author Grégory Van den Borre

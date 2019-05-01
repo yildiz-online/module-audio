@@ -28,7 +28,6 @@ module be.yildizgames.module.audio {
     requires be.yildizgames.common.util;
     requires be.yildizgames.common.file;
     requires be.yildizgames.common.gameobject;
-    requires be.yildizgames.module.vfs;
 
     requires slf4j.api;
 
