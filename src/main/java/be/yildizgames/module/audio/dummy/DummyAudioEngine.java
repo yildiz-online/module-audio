@@ -30,35 +30,36 @@ import be.yildizgames.module.audio.EmptySoundSource;
 import be.yildizgames.module.audio.SoundSource;
 
 /**
- * Dummy audio engine.
+ * Dummy audio engine implementation, does nothing.
  *
  * @author Grégory Van den Borre
  */
-final class DummyAudioEngine extends BaseAudioEngine {
+class DummyAudioEngine extends BaseAudioEngine {
 
+    /**
+     * Constructor.
+     */
     DummyAudioEngine() {
         super();
     }
 
     @Override
-    protected void closeImpl() {
+    protected final void closeImpl() {
         //Does nothing.
     }
 
     @Override
-    public void update() {
+    public final void update() {
         //Does nothing.
     }
 
     @Override
-    public SoundSource createSound(final String file) {
+    public final SoundSource createSound(final String file) {
         return new EmptySoundSource();
     }
 
     @Override
-    public BaseAudioEngine addResourcePath(final ResourcePath path) {
+    public final BaseAudioEngine addResourcePath(final ResourcePath path) {
         return this;
-
     }
-
 }

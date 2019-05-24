@@ -28,12 +28,14 @@ import be.yildizgames.module.audio.AudioEngineProvider;
 import be.yildizgames.module.audio.BaseAudioEngine;
 
 /**
+ * Create a new Dummy audio engine instance.
+ *
  * @author Grégory Van den Borre
  */
 public class DummyAudioEngineProvider implements AudioEngineProvider {
 
     @Override
-    public BaseAudioEngine getAudioEngine() {
+    public final BaseAudioEngine getAudioEngine() {
         return new DummyAudioEngine();
     }
 }

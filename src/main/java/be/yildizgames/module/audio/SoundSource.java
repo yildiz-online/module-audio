@@ -37,14 +37,14 @@ public interface SoundSource {
     /**
      * Start playing the source associated to this object.
      */
-    void play();
+    SoundSource play();
 
-    void addEndPlayListener(EndPlayListener listener);
+    SoundSource addEndPlayListener(EndPlayListener listener);
 
     /**
      * Stop playing this source.
      */
-    void stop();
+    SoundSource stop();
 
     /**
      * @return true if the audio is playing or paused, false otherwise.
@@ -56,20 +56,19 @@ public interface SoundSource {
      *
      * @param pos New position.
      */
-    void setPosition(final Point3D pos);
+    SoundSource setPosition(final Point3D pos);
 
     /**
      * The audio will be played in loop until stop is called.
      */
-    void loop();
+    SoundSource loop();
 
     /**
      * Reset the audio at its beginning.
      */
-    void rewind();
+    SoundSource rewind();
 
-    void setGain(float gain);
+    SoundSource setGain(float gain);
 
-    void delete();
-
+    SoundSource delete();
 }

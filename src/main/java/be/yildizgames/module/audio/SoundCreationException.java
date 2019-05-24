@@ -27,7 +27,7 @@ package be.yildizgames.module.audio;
 /**
  * @author Grégory Van den Borre
  */
-public class SoundCreationException extends RuntimeException {
+public class SoundCreationException extends IllegalStateException {
 
     public SoundCreationException(Exception e) {
         super(e);

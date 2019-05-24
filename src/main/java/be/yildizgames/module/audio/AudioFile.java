@@ -26,31 +26,73 @@ package be.yildizgames.module.audio;
 
 import be.yildizgames.common.file.FileResource;
 
+import java.util.Objects;
+
 /**
+ * Audio file, with a path and a type (file, vfs,...)
+ *
  * @author Grégory Van den Borre
  */
 public class AudioFile {
 
+    /**
+     * File type.
+     */
     private final FileResource.FileType type;
 
+    /**
+     * File path and name.
+     */
     public final String name;
 
-    public  AudioFile(FileResource.FileType type, String name) {
+    /**
+     * Private constructor to prevent instantiation, use static factory methods instead (vfs, file).
+     * @param type File type, cannot be null.
+     * @param name File path and name, cannot be null.
+     */
+    private AudioFile(final FileResource.FileType type, final String name) {
+        Objects.requireNonNull(name);
         this.type = type;
         this.name = name;
     }
 
-    public static AudioFile vfs(String name) {
+    /**
+     * File stored in a VFS.
+     *
+     * @param name File path in the vfs container, cannot be null.
+     *
+     * @return The file, never null.
+     */
+    public static AudioFile vfs(final String name) {
         return new AudioFile(FileResource.FileType.VFS, name);
     }
 
-    public static AudioFile file(String name) {
+    /**
+     * File stored in a simple file.
+     *
+     * @param name Physical file path, cannot be null.
+     *
+     * @return The file, never null.
+     */
+    public static AudioFile file(final String name) {
         return new AudioFile(FileResource.FileType.FILE, name);
     }
 
+    /**
+     * Check if the file is stored in a vfs.
+     *
+     * @return true if the file is in a VFS, false otherwise.
+     */
     public final boolean isVfs() {
         return this.type == FileResource.FileType.VFS;
     }
 
-
+    /**
+     * Check if the file is physical.
+     *
+     * @return true if the file is physical, false otherwise.
+     */
+    public final boolean isFile() {
+        return this.type == FileResource.FileType.FILE;
+    }
 }

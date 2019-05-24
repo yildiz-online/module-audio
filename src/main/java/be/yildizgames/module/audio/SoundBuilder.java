@@ -35,9 +35,10 @@ public interface SoundBuilder {
     /**
      * Build a SoundSource from a file.
      *
-     * @param file File to load.
-     * @return The built SoundSource.
+     * @param file File to load, cannot be null.
+     *
+     * @return The built SoundSource, never null.
      */
-    SoundSource createSound(final String file);
+    SoundSource createSound(String file);
 
 }

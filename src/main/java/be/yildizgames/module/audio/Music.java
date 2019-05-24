@@ -26,6 +26,8 @@ package be.yildizgames.module.audio;
 
 import be.yildizgames.common.util.StringUtil;
 
+import java.util.Objects;
+
 /**
  * A simple container to hold the music file and its name.
  *
@@ -44,8 +46,8 @@ public class Music {
     private final String name;
 
     private Music(String file, String name) {
-        assert file != null;
-        assert name != null;
+        Objects.requireNonNull(file);
+        Objects.requireNonNull(name);
         this.file = file;
         this.name = name;
     }
@@ -58,11 +60,11 @@ public class Music {
         return new Music(file, name);
     }
 
-    public String getFile() {
-        return file;
+    public final String getFile() {
+        return this.file;
     }
 
-    public String getName() {
-        return name;
+    public final String getName() {
+        return this.name;
     }
 }

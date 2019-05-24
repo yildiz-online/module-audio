@@ -25,9 +25,16 @@
 package be.yildizgames.module.audio;
 
 /**
+ * Provide an implementation for an audio engine.
+ *
  * @author Grégory Van den Borre
  */
 public interface AudioEngineProvider {
 
+    /**
+     * Create a new audio engine instance.
+     *
+     * @return The created audio engine instance, never null.
+     */
     BaseAudioEngine getAudioEngine();
 }

@@ -27,26 +27,26 @@ package be.yildizgames.module.audio;
 /**
  * @author Grégory Van den Borre
  */
-
 import be.yildizgames.common.geometry.Point3D;
 
 /**
  * Dummy audio source.
  */
 public final class EmptySoundSource implements SoundSource {
+
     @Override
-    public void play() {
-        //Does nothing.
+    public SoundSource play() {
+        return this;
     }
 
     @Override
-    public void addEndPlayListener(EndPlayListener listener) {
-        //Does nothing
+    public SoundSource addEndPlayListener(EndPlayListener listener) {
+        return this;
     }
 
     @Override
-    public void stop() {
-        //Does nothing.
+    public SoundSource stop() {
+        return this;
     }
 
     @Override
@@ -55,27 +55,27 @@ public final class EmptySoundSource implements SoundSource {
     }
 
     @Override
-    public void setPosition(Point3D pos) {
-        //Does nothing.
+    public SoundSource setPosition(Point3D pos) {
+        return this;
     }
 
     @Override
-    public void loop() {
-        //Does nothing.
+    public SoundSource loop() {
+        return this;
     }
 
     @Override
-    public void rewind() {
-        //Does nothing.
+    public SoundSource rewind() {
+        return this;
     }
 
     @Override
-    public void setGain(float gain) {
-        //Does nothing.
+    public SoundSource setGain(float gain) {
+        return this;
     }
 
     @Override
-    public void delete() {
-        //Does nothing.
+    public SoundSource delete() {
+        return this;
     }
 }
