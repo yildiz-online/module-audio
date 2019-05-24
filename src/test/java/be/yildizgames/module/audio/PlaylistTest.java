@@ -53,7 +53,7 @@ public class PlaylistTest {
 
         @Test
         public void withNullSoundBuilder() {
-            assertThrows(AssertionError.class, () -> new Playlist("any2", null));
+            assertThrows(NullPointerException.class, () -> new Playlist("any2", null));
         }
     }
 
@@ -101,7 +101,7 @@ public class PlaylistTest {
 
         @Test
         public void withNull() {
-            assertThrows(AssertionError.class, () -> Playlist.get(null));
+            assertThrows(NullPointerException.class, () -> Playlist.get(null));
         }
 
         @Test

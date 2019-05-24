@@ -22,43 +22,20 @@
  *
  */
 
-package be.yildizgames.module.audio;
+package be.yildizgames.module.audio.dummy;
 
-import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * @author Grégory Van den Borre
  */
-public class MusicTest {
+public class DummyAudioEngineTest {
 
-    @Nested
-    public class Constructor {
-
-        @Test
-        public void happyFlow() {
-            Music m = Music.withName("testFile", "testName");
-            assertEquals("testFile", m.getFile());
-            assertEquals("testName", m.getName());
-        }
-
-        @Test
-        public void fromFile() {
-            Music m = Music.fromFile("testFile");
-            assertEquals("testFile", m.getFile());
-        }
-
-        @Test
-        public void withNullFile() {
-            assertThrows(NullPointerException.class, () -> Music.withName(null, "testName"));
-        }
-
-        @Test
-        public void withNullName() {
-            assertThrows(NullPointerException.class, () -> Music.withName("testFile", null));
-        }
+    @Test
+    public void constructor() {
+        DummyAudioEngine dummyAudioEngine = new DummyAudioEngine();
+        Assertions.assertNotNull(dummyAudioEngine);
     }
+
 }

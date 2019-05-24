@@ -21,19 +21,55 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE  SOFTWARE.
  *
  */
-
 package be.yildizgames.module.audio;
 
-import be.yildizgames.module.audio.dummy.DummyAudioEngineProvider;
+import be.yildizgames.common.file.ResourcePath;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author Grégory Van den Borre
  */
-public class DummyAudioEngineTest {
+public class BaseAudioEngineTest {
 
-    public void testSoundEngine() {
-        BaseAudioEngine se = new DummyAudioEngineProvider().getAudioEngine();
-        se.listener.getPosition();
+    @Nested
+    public class Constructor {
+
+        @Test
+        public void happyFlow() {
+            BaseAudioEngine engine = new TestBaseAudioEngine();
+            Assertions.assertNotNull(engine);
+        }
+
+        @Test
+        public void getFromProvider() {
+            BaseAudioEngine engine = BaseAudioEngine.getEngine();
+            Assertions.assertNotNull(engine);
+        }
+    }
+
+    private static class TestBaseAudioEngine extends BaseAudioEngine {
+
+        @Override
+        public void update() {
+
+        }
+
+        @Override
+        protected void closeImpl() {
+
+        }
+
+        @Override
+        public AudioEngine addResourcePath(ResourcePath path) {
+            return this;
+        }
+
+        @Override
+        public SoundSource createSound(String file) {
+            return new EmptySoundSource();
+        }
     }
 
 }

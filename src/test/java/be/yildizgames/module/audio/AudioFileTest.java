@@ -21,44 +21,49 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE  SOFTWARE.
  *
  */
-
 package be.yildizgames.module.audio;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * @author Grégory Van den Borre
  */
-public class MusicTest {
+public class AudioFileTest {
 
     @Nested
-    public class Constructor {
+    public class Vfs {
 
         @Test
         public void happyFlow() {
-            Music m = Music.withName("testFile", "testName");
-            assertEquals("testFile", m.getFile());
-            assertEquals("testName", m.getName());
+            AudioFile file = AudioFile.vfs("test");
+            Assertions.assertEquals("test", file.name);
+            Assertions.assertTrue(file.isVfs());
+            Assertions.assertFalse(file.isFile());
         }
 
         @Test
-        public void fromFile() {
-            Music m = Music.fromFile("testFile");
-            assertEquals("testFile", m.getFile());
-        }
-
-        @Test
-        public void withNullFile() {
-            assertThrows(NullPointerException.class, () -> Music.withName(null, "testName"));
-        }
-
-        @Test
-        public void withNullName() {
-            assertThrows(NullPointerException.class, () -> Music.withName("testFile", null));
+        public void nullName() {
+            Assertions.assertThrows(NullPointerException.class, () -> AudioFile.vfs(null));
         }
     }
+
+    @Nested
+    public class File {
+
+        @Test
+        public void happyFlow() {
+            AudioFile file = AudioFile.file("test");
+            Assertions.assertEquals("test", file.name);
+            Assertions.assertTrue(file.isFile());
+            Assertions.assertFalse(file.isVfs());
+        }
+
+        @Test
+        public void nullName() {
+            Assertions.assertThrows(NullPointerException.class, () -> AudioFile.file(null));
+        }
+    }
+
 }

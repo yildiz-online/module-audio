@@ -21,44 +21,54 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE  SOFTWARE.
  *
  */
-
 package be.yildizgames.module.audio;
 
-import org.junit.jupiter.api.Nested;
+import be.yildizgames.common.geometry.Point3D;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * @author Grégory Van den Borre
  */
-public class MusicTest {
+public class EmptySoundSourceTest {
 
-    @Nested
-    public class Constructor {
+    @Test
+    public void play() {
+        Assertions.assertNotNull(new EmptySoundSource().play());
+    }
 
-        @Test
-        public void happyFlow() {
-            Music m = Music.withName("testFile", "testName");
-            assertEquals("testFile", m.getFile());
-            assertEquals("testName", m.getName());
-        }
+    @Test
+    public void stop() {
+        Assertions.assertNotNull(new EmptySoundSource().stop());
+    }
 
-        @Test
-        public void fromFile() {
-            Music m = Music.fromFile("testFile");
-            assertEquals("testFile", m.getFile());
-        }
+    @Test
+    public void rewind() {
+        Assertions.assertNotNull(new EmptySoundSource().rewind());
+    }
 
-        @Test
-        public void withNullFile() {
-            assertThrows(NullPointerException.class, () -> Music.withName(null, "testName"));
-        }
+    @Test
+    public void loop() {
+        Assertions.assertNotNull(new EmptySoundSource().loop());
+    }
 
-        @Test
-        public void withNullName() {
-            assertThrows(NullPointerException.class, () -> Music.withName("testFile", null));
-        }
+    @Test
+    public void setGain() {
+        Assertions.assertNotNull(new EmptySoundSource().setGain(0));
+    }
+
+    @Test
+    public void setPosition() {
+        Assertions.assertNotNull(new EmptySoundSource().setPosition(Point3D.ZERO));
+    }
+
+    @Test
+    public void delete() {
+        Assertions.assertNotNull(new EmptySoundSource().delete());
+    }
+
+    @Test
+    public void isPlaying() {
+        Assertions.assertFalse(new EmptySoundSource().isPlaying());
     }
 }
