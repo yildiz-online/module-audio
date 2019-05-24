@@ -26,20 +26,22 @@ package be.yildizgames.module.audio;
 
 import be.yildizgames.common.util.BaseRegisterable;
 import be.yildizgames.common.util.Registerer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * A container to load and play music files.
  *
  * @author Grégory Van den Borre
  */
-public final class Playlist extends BaseRegisterable implements EndPlayListener {
+public class Playlist extends BaseRegisterable implements EndPlayListener {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Playlist.class);
+    /**
+     * Logger.
+     */
+    private final System.Logger logger = System.getLogger(Playlist.class.toString());
 
     /**
      * List of all existing play lists.
@@ -50,14 +52,18 @@ public final class Playlist extends BaseRegisterable implements EndPlayListener 
      * List of file to play.
      */
     private final List<Music> musics = new ArrayList<>();
+
     /**
      * Create the stream files.
      */
     private final SoundBuilder builder;
+
     /**
      * Position in the music list of the current playing music.
      */
+
     private int current;
+
     /**
      * Currently played music.
      */
@@ -71,7 +77,7 @@ public final class Playlist extends BaseRegisterable implements EndPlayListener 
      */
     Playlist(final String name, final SoundBuilder soundBuilder) {
         super(name);
-        assert soundBuilder != null;
+        Objects.requireNonNull(soundBuilder);
         this.builder = soundBuilder;
         Playlist.REGISTERER.register(this);
     }
@@ -79,25 +85,25 @@ public final class Playlist extends BaseRegisterable implements EndPlayListener 
     /**
      * Retrieve a Playlist from its unique name.
      *
-     * @param name Unique material name.
-     * @return Found material.
+     * @param name Unique playlist name.
+     * @return Found playlist.
      */
     public static Playlist get(final String name) {
-        assert name != null;
+        Objects.requireNonNull(name);
         return Playlist.REGISTERER.get(name);
     }
 
     /**
      * Stop playing the current music.
      */
-    public void stop() {
+    public final void stop() {
         this.currentStream.stop();
     }
 
     /**
      * Play the playNext music in the list.
      */
-    public void playNext() {
+    public final void playNext() {
         this.currentStream.stop();
         if (!this.musics.isEmpty()) {
             try {
@@ -109,13 +115,13 @@ public final class Playlist extends BaseRegisterable implements EndPlayListener 
                 }
                 this.currentStream.addEndPlayListener(this);
             } catch (SoundCreationException e) {
-                LOGGER.error("Error creating audio:", e);
+                this.logger.log(System.Logger.Level.ERROR, "Error creating audio:", e);
             }
         }
     }
 
     @Override
-    public void soundFinished() {
+    public final void soundFinished() {
         this.playNext();
     }
 
@@ -125,7 +131,7 @@ public final class Playlist extends BaseRegisterable implements EndPlayListener 
      * @param music Music to add.
      * @return This object for chaining.
      */
-    public Playlist addMusic(final Music music) {
+    public final Playlist addMusic(final Music music) {
         assert music != null;
         this.musics.add(music);
         return this;

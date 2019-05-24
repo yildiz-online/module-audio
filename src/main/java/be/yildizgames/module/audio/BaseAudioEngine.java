@@ -28,9 +28,8 @@ import be.yildizgames.common.gameobject.Movable;
 import be.yildizgames.common.geometry.Point3D;
 import be.yildizgames.common.util.StringUtil;
 import be.yildizgames.module.audio.dummy.DummyAudioEngineProvider;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+import java.util.Objects;
 import java.util.ServiceLoader;
 
 /**
@@ -40,47 +39,55 @@ import java.util.ServiceLoader;
  */
 public abstract class BaseAudioEngine implements AutoCloseable, AudioEngine {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(BaseAudioEngine.class);
-
     /**
-     * User listening to the audio, used for audio 3D positioning.
+     * Logger.
      */
-    protected Movable listener = new DefaultListener();
+    private final System.Logger logger = System.getLogger(AudioFile.class.toString());
+
     /**
      * Currently played music.
      */
     private SoundSource musicPlaying = new EmptySoundSource();
 
+    /**
+     * User listening to the audio, used for audio 3D positioning.
+     */
+    protected Movable listener = new DefaultListener();
+
+    /**
+     * Constructor.
+     */
     protected BaseAudioEngine() {
         super();
     }
 
+    /**
+     * Create a new instance of an audio engine implemenation.
+     *
+     * @return The created instance, never null.
+     */
     public static BaseAudioEngine getEngine() {
         ServiceLoader<AudioEngineProvider> provider = ServiceLoader.load(AudioEngineProvider.class);
         return provider.findFirst().orElseGet(DummyAudioEngineProvider::new).getAudioEngine();
     }
 
     /**
-     * Set a user to be considered as the audio listener.
+     * Set a user to be considered as the audio listener, in most of case, it will be a camera.
      *
-     * @param user User listener.
-     * @return This object for chaining.
+     * @param user User listener, cannot be null.
+     *
+     * @return This object for chaining, never null.
      */
-
     public final BaseAudioEngine setListener(Movable user) {
+        Objects.requireNonNull(user);
         this.listener = user;
         return this;
     }
 
     /**
-     * Update the current audio state.
-     */
-    public abstract void update();
-
-    /**
      * Test the audio positioning by playing audio with different positions.
      */
-    public final void testAudio() {
+    public final void testAudio(String file) {
         SoundSource source = this.createSound("test.wav");
         this.listener.setPosition(5, 0, 5);
         source.play();
@@ -92,22 +99,11 @@ public abstract class BaseAudioEngine implements AutoCloseable, AudioEngine {
         source.play();
     }
 
-    /**
-     * Build a play list of music to be played.
-     *
-     * @param name Play list name.
-     * @return The built play list.
-     */
     @Override
     public final Playlist createPlaylist(final String name) {
         return new Playlist(name, this);
     }
 
-    /**
-     * Build a play list of music to be played with a random name.
-     *
-     * @return The built play list.
-     */
     @Override
     public final Playlist createPlaylist() {
         return createPlaylist(StringUtil.buildRandomString("playlist"));
@@ -115,12 +111,20 @@ public abstract class BaseAudioEngine implements AutoCloseable, AudioEngine {
 
     @Override
     public final void close() {
-        LOGGER.info("Closing audio engine...");
+        this.logger.log(System.Logger.Level.INFO, "Closing audio engine...");
         this.musicPlaying.stop();
         this.closeImpl();
-        LOGGER.info("Audio engine closed.");
+        this.logger.log(System.Logger.Level.INFO,"Audio engine closed.");
     }
 
+    /**
+     * Update the current audio state.
+     */
+    public abstract void update();
+
+    /**
+     * Implementation specific close behavior.
+     */
     protected abstract void closeImpl();
 
     /**
