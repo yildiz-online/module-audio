@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <!--
   ~ This file is part of the Yildiz-Engine project, licenced under the MIT License  (MIT)
   ~
@@ -22,28 +24,32 @@
   ~
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
   <modelVersion>4.0.0</modelVersion>
-  <name>Yildiz Module Audio</name>
+
+  <name>Yildiz-Engine Module Audio</name>
   <description>Module handling audio components.</description>
-  <url>https://bitbucket.org/yildiz-engine-team/module-audio</url>
+  <inceptionYear>2014</inceptionYear>
+  <url>https://engine.yildiz-games.be</url>
 
   <artifactId>module-audio</artifactId>
   <version>2.0.7-SNAPSHOT</version>
-
-  <packaging>jar</packaging>
-  <inceptionYear>2014</inceptionYear>
-  <scm>
-    <connection>scm:git:https://bitbucket.org/yildiz-engine-team/module-audio</connection>
-    <developerConnection>scm:git:https://bitbucket.org/yildiz-engine-team/module-audio</developerConnection>
-    <url>https://bitbucket.org/yildiz-engine-team/module-audio</url>
-  </scm>
 
   <parent>
     <groupId>be.yildiz-games</groupId>
     <artifactId>parent</artifactId>
     <version>3.0.5</version>
   </parent>
+
+  <packaging>jar</packaging>
+
+  <scm>
+    <connection>scm:git:https://github.com/yildiz-online/module-audio</connection>
+    <developerConnection>scm:git:https://github.com/yildiz-online/module-audio</developerConnection>
+    <url>https://github.com/yildiz-online/module-audio</url>
+  </scm>
 
   <dependencies>
     <dependency>
