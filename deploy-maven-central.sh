@@ -14,7 +14,6 @@ export REPO_USER=$(echo $SECRETS | jq -r '.data.REPO_USER')
 export REPO_PASSWORD=$(echo $SECRETS | jq -r '.data.REPO_PASSWORD')
 SONAR=$(echo $SECRETS | jq -r '.data.SONAR')
 SONAR_ORGANIZATION=$(echo $SECRETS | jq -r '.data.SONAR_ORGANIZATION')
-echo "Building $BRANCH branch"
 
 echo "Building $BRANCH branch"
 
