@@ -24,13 +24,11 @@
 
 package be.yildizgames.module.audio;
 
-/**
- * @author Grégory Van den Borre
- */
 import be.yildizgames.common.geometry.Point3D;
 
 /**
  * Dummy audio source.
+ * @author Grégory Van den Borre
  */
 public final class EmptySoundSource implements SoundSource {
 

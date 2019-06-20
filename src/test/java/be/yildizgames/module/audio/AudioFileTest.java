@@ -32,6 +32,7 @@ import org.junit.jupiter.api.Test;
  */
 public class AudioFileTest {
 
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     @Nested
     public class Vfs {
 
@@ -49,6 +50,7 @@ public class AudioFileTest {
         }
     }
 
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     @Nested
     public class File {
 
