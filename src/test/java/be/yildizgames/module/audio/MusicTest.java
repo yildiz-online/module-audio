@@ -33,31 +33,31 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 /**
  * @author Grégory Van den Borre
  */
-public class MusicTest {
+class MusicTest {
 
     @Nested
-    public class Constructor {
+    class Constructor {
 
         @Test
-        public void happyFlow() {
+        void happyFlow() {
             Music m = Music.withName("testFile", "testName");
             assertEquals("testFile", m.getFile());
             assertEquals("testName", m.getName());
         }
 
         @Test
-        public void fromFile() {
+        void fromFile() {
             Music m = Music.fromFile("testFile");
             assertEquals("testFile", m.getFile());
         }
 
         @Test
-        public void withNullFile() {
+        void withNullFile() {
             assertThrows(NullPointerException.class, () -> Music.withName(null, "testName"));
         }
 
         @Test
-        public void withNullName() {
+        void withNullName() {
             assertThrows(NullPointerException.class, () -> Music.withName("testFile", null));
         }
     }

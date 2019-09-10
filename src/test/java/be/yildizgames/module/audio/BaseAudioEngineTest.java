@@ -31,13 +31,13 @@ import org.junit.jupiter.api.Test;
 /**
  * @author Grégory Van den Borre
  */
-public class BaseAudioEngineTest {
+class BaseAudioEngineTest {
 
     @Nested
-    public class Constructor {
+    class Constructor {
 
         @Test
-        public void happyFlow() {
+        void happyFlow() {
             BaseAudioEngine engine = new TestBaseAudioEngine();
             Assertions.assertNotNull(engine);
         }

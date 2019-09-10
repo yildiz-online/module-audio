@@ -30,45 +30,45 @@ import org.junit.jupiter.api.Test;
 /**
  * @author Grégory Van den Borre
  */
-public class EmptySoundSourceTest {
+class EmptySoundSourceTest {
 
     @Test
-    public void play() {
+    void play() {
         Assertions.assertNotNull(new EmptySoundSource().play());
     }
 
     @Test
-    public void stop() {
+    void stop() {
         Assertions.assertNotNull(new EmptySoundSource().stop());
     }
 
     @Test
-    public void rewind() {
+    void rewind() {
         Assertions.assertNotNull(new EmptySoundSource().rewind());
     }
 
     @Test
-    public void loop() {
+    void loop() {
         Assertions.assertNotNull(new EmptySoundSource().loop());
     }
 
     @Test
-    public void setGain() {
+    void setGain() {
         Assertions.assertNotNull(new EmptySoundSource().setGain(0));
     }
 
     @Test
-    public void setPosition() {
+    void setPosition() {
         Assertions.assertNotNull(new EmptySoundSource().setPosition(Point3D.ZERO));
     }
 
     @Test
-    public void delete() {
+    void delete() {
         Assertions.assertNotNull(new EmptySoundSource().delete());
     }
 
     @Test
-    public void isPlaying() {
+    void isPlaying() {
         Assertions.assertFalse(new EmptySoundSource().isPlaying());
     }
 }

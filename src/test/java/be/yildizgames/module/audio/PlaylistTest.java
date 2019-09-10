@@ -36,76 +36,76 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 /**
  * @author Grégory Van den Borre
  */
-public class PlaylistTest {
+class PlaylistTest {
 
     @Nested
-    public class Constructor {
+    class Constructor {
 
         @Test
-        public void happyFlow() {
+        void happyFlow() {
             new Playlist("any1", new DummyAudioEngineProvider().getAudioEngine());
         }
 
         @Test
-        public void withNullName() {
+        void withNullName() {
             assertThrows(AssertionError.class, () -> new Playlist(null, new DummyAudioEngineProvider().getAudioEngine()));
         }
 
         @Test
-        public void withNullSoundBuilder() {
+        void withNullSoundBuilder() {
             assertThrows(NullPointerException.class, () -> new Playlist("any2", null));
         }
     }
 
     @Nested
-    public class Add {
+    class Add {
 
         @Test
-        public void happyFlow() {
+        void happyFlow() {
             Playlist p = new Playlist("add-happyFlow", new DummyAudioEngineProvider().getAudioEngine());
             p.addMusic(Music.withName("fileTest", "nameTest"));
         }
 
         @Test
-        public void withNull() {
+        void withNull() {
             Playlist p = new Playlist("add-withNull", new DummyAudioEngineProvider().getAudioEngine());
             assertThrows(AssertionError.class, () -> p.addMusic(null));
         }
     }
 
     @Nested
-    public class Next {
+    class Next {
 
         @Test
-        public void happyFlow() {
+        void happyFlow() {
             Playlist p = new Playlist("playNext-happyFlow", new DummyAudioEngineProvider().getAudioEngine());
             p.addMusic(Music.withName("fileTest", "nameTest"));
             p.playNext();
         }
 
         @Test
-        public void withEmptyList() {
+        void withEmptyList() {
             Playlist p = new Playlist("playNext-withEmpty", new DummyAudioEngineProvider().getAudioEngine());
             p.playNext();
         }
     }
 
     @Nested
-    public class Get {
+    class Get {
 
         @Test
-        public void happyFlow() {
+        void happyFlow() {
             new Playlist("get-happyFlow", new DummyAudioEngineProvider().getAudioEngine());
             assertNotNull(Playlist.get("get-happyFlow"));
         }
 
         @Test
-        public void withNull() {
+        void withNull() {
             assertThrows(NullPointerException.class, () -> Playlist.get(null));
         }
 
         @Test
-        public void withNoResult() {
+        void withNoResult() {
             assertThrows(InvalidParameterException.class, () -> Playlist.get("notExisting"));
         }
     }

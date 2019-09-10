@@ -30,14 +30,14 @@ import org.junit.jupiter.api.Test;
 /**
  * @author Grégory Van den Borre
  */
-public class AudioFileTest {
+class AudioFileTest {
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
     @Nested
-    public class Vfs {
+    class Vfs {
 
         @Test
-        public void happyFlow() {
+        void happyFlow() {
             AudioFile file = AudioFile.vfs("test");
             Assertions.assertEquals("test", file.name);
             Assertions.assertTrue(file.isVfs());
@@ -45,17 +45,17 @@ public class AudioFileTest {
         }
 
         @Test
-        public void nullName() {
+        void nullName() {
             Assertions.assertThrows(NullPointerException.class, () -> AudioFile.vfs(null));
         }
     }
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
     @Nested
-    public class File {
+    class File {
 
         @Test
-        public void happyFlow() {
+        void happyFlow() {
             AudioFile file = AudioFile.file("test");
             Assertions.assertEquals("test", file.name);
             Assertions.assertTrue(file.isFile());
@@ -63,7 +63,7 @@ public class AudioFileTest {
         }
 
         @Test
-        public void nullName() {
+        void nullName() {
             Assertions.assertThrows(NullPointerException.class, () -> AudioFile.file(null));
         }
     }

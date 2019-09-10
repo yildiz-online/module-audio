@@ -30,10 +30,10 @@ import org.junit.jupiter.api.Test;
 /**
  * @author Grégory Van den Borre
  */
-public class DummyAudioEngineProviderTest {
+class DummyAudioEngineProviderTest {
 
     @Test
-    public void get() {
+    void get() {
         AudioEngine audioEngine = new DummyAudioEngineProvider().getAudioEngine();
         Assertions.assertNotNull(audioEngine);
     }

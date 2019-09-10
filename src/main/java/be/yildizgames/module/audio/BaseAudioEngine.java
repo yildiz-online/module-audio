@@ -62,7 +62,7 @@ public abstract class BaseAudioEngine implements AutoCloseable, AudioEngine {
     }
 
     /**
-     * Create a new instance of an audio engine implemenation.
+     * Create a new instance of an audio engine implementation.
      *
      * @return The created instance, never null.
      */
