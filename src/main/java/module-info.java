@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE  SOFTWARE.
  */
 
-module be.yildizgames.module.audio {
+open module be.yildizgames.module.audio {
 
     requires be.yildizgames.common.geometry;
     requires be.yildizgames.common.util;
